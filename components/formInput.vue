@@ -1,6 +1,6 @@
 <template>
     <div class="input_wrapper">
-        <label for="input">{{ label }}</label>
+        <label for="input">{{ label }}<span class="required" v-if="isRequired">*</span></label>
         <input  @change="onChange(inputValue)" id="input" class="form_input" :type="type" v-model="inputValue" :placeholder="placeholder?placeholder:label" />
     </div>
 </template>
@@ -19,6 +19,10 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    isRequired: {
+        type: Boolean,
+        default: true,
+    },
 })
 const emits = defineEmits()
 const onChange = value => {
@@ -33,6 +37,10 @@ const inputValue = ref('')
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+.required{
+    margin-left: 5px;
+    color: red;
 }
 .form_input{
     width: 240px;
