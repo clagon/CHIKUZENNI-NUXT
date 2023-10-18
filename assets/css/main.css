@@ -1,0 +1,17 @@
+:root {
+	--primary: #256ebb;
+	--white: #f1f3f5;
+	--black: #020117;
+	--gray: #acadaf;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,
+body,
+#__nuxt {
+	width: 100%;
+	height: 100%;
+}
