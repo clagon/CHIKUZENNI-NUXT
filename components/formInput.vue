@@ -1,7 +1,10 @@
 <template>
     <div class="input_wrapper">
         <label for="input">{{ label }}<span class="required" v-if="isRequired">*</span></label>
-        <input  @change="onChange(inputValue)" id="input" class="form_input" :type="type" v-model="inputValue" :placeholder="placeholder?placeholder:label" />
+        <input  @change="onChange(inputValue)" id="input" class="form_input" :type="isVisible?'text': type" v-model="inputValue" :placeholder="placeholder?placeholder:label" />
+        <div class="show" v-if="type=='password'" tabindex="0" @keydown.space="togglePassVisibility()" @keydown.enter="togglePassVisibility()"><span @click="togglePassVisibility()" class="material-symbols-outlined">
+{{isVisible?"visibility": "visibility_off"}}
+</span></div>
     </div>
 </template>
 
@@ -28,7 +31,18 @@ const emits = defineEmits()
 const onChange = value => {
     emits('change', value)
 }
+const togglePassVisibility = () =>{
+    isVisible.value = !isVisible.value
+}
 const inputValue = ref('')
+const isVisible = ref(false)
+useHead({
+    link: [
+        {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0',}
+    ]
+})
 </script>
 
 <style scoped>
@@ -37,6 +51,7 @@ const inputValue = ref('')
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
 }
 .required{
     margin-left: 5px;
@@ -54,5 +69,12 @@ const inputValue = ref('')
 .form_input:focus{
     outline: none;
     border: 2px solid var(--primary);
+}
+.show{
+    user-select: none;
+    position: absolute;
+    bottom:2px;
+    right: 8px;
+    cursor: pointer;
 }
 </style>
