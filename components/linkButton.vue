@@ -1,5 +1,5 @@
 <template>
-    <nuxt-link class="link" :to="path">
+    <nuxt-link class="link" :to="path" tabindex="-1">
         <button class="button">{{ text }}</button>
     </nuxt-link >
 </template>
