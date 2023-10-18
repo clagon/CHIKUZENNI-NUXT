@@ -35,7 +35,7 @@ const target = props.mode == 'teacher' ? 'teacher':'student'
     align-items: flex-start;
 }
 .title{
-    font-weight: 600;
+    font-weight: 700;
     color: var(--black);
     margin-bottom: 20px;
 }
@@ -80,7 +80,7 @@ const target = props.mode == 'teacher' ? 'teacher':'student'
         background-color: var(--primary);
         color: var(--white);
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         box-shadow: 0px 1px 2px rgba(32, 33, 36, .5);
         margin-top: 20px;
 }
@@ -94,7 +94,7 @@ const target = props.mode == 'teacher' ? 'teacher':'student'
 .signup{
     margin-top: 70px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--gray);
 }
 </style>

@@ -21,13 +21,13 @@
 }
 .left_txt{
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--white);
   margin-bottom: 1rem;
 }
 .saa{
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--black);
   margin-bottom: 1rem;
 }
@@ -40,13 +40,13 @@
   }
   .left_txt{
     font-size: 32px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--white);
     margin-bottom: 1rem;
   }
   .saa{
     font-size: 32px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--black);
     margin-bottom: 1rem;
   }

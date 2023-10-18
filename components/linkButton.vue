@@ -31,7 +31,7 @@
         background-color: var(--primary);
         color: var(--white);
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         box-shadow: 0px 1px 2px rgba(32, 33, 36, .5);
     }
     .button:hover{
