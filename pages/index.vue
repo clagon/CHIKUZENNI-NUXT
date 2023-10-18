@@ -1,15 +1,15 @@
 <template>
-  <ChikuzenniHeader />
+  <chikuzenniHeader />
   <div class="container">
-    <grid-left class="left">
+    <gridLeft class="left">
       <p class="left_txt">筑前煮で</p>
       <p class="left_txt">より良い未来を</p>
-    </grid-left>
-    <grid-right>
+    </gridLeft>
+    <gridRight>
       <p class="saa">さぁ, はじめよう</p>
-      <LinkButton text="学生の方" path="/student" />
-      <LinkButton text="教職員の方" path="/teacher" />
-    </grid-right>
+      <linkButton text="学生の方" path="/student" />
+      <linkButton text="教職員の方" path="/teacher" />
+    </gridRight>
   </div>
 </template>
 <style scoped>

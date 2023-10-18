@@ -1,15 +1,20 @@
 <template>
     <section class="container">
-        <h1 class="title">Login</h1>
+        <h1 class="title">Signup</h1>
         <form class="form" @submit.prevent="login">
             <formInput label="ID"/>
+            <formInput label="名前"/>
+            <formInput label="メールアドレス"/>
+            <formInput label="機器ID" v-if="target=='teacher'"/>
             <formInput label="パスワード" type="password"/>
-            <button class="submit" type="submit">ログイン</button>
+            <formInput label="パスワード確認" type="password"/>
+            <button class="submit" type="submit">登録</button>
         </form>
-        <NuxtLink class="signup" :to="'/'+ target +'/signup'">新規登録はこちら</NuxtLink>
+        <NuxtLink class="signup" :to="'/'+ target +'/login'">ログインはこちら</NuxtLink>
     </section>
 </template>
 <script setup>
+
 const props = defineProps({
     mode: {
         type: String,
@@ -38,6 +43,25 @@ const target = props.mode == 'teacher' ? 'teacher':'student'
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+}
+.input_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.form_input{
+    width: 240px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    padding: 0 10px;
+    font-size: 16px;
+    color: var(--black);
+}
+.form_input:focus{
+    outline: none;
+    border: 2px solid var(--primary);
 }
 .submit{
         width: 160px;
