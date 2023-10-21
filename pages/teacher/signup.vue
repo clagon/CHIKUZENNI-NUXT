@@ -1,11 +1,11 @@
 <template>
-    <chikuzenniHeader />
-    <div class="container">
-        <signupForm mode="teacher" />
+    <HomeHeader />
+    <div class="signup">
+        <FormSignup mode="teacher" />
     </div>
 </template>
 <style scoped>
-.container {
+.signup {
     width: 100%;
     height: 100%;
     display: flex;
@@ -14,4 +14,3 @@
     align-items: center;
 }
 </style>
-```

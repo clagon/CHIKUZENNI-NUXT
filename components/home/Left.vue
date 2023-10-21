@@ -1,5 +1,3 @@
-
-import { NuxtComponentIndicator } from 'nuxt/dist/app/composables/component';
 <template>
     <div class="grid_left"><slot></slot></div>
 </template>

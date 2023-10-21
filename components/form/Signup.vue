@@ -2,26 +2,25 @@
     <section class="container">
         <h1 class="title">Signup</h1>
         <form class="form" @submit.prevent="login">
-            <formInput label="ID"/>
-            <formInput label="名前"/>
-            <formInput label="メールアドレス"/>
-            <formInput label="機器ID" v-if="target=='teacher'"/>
-            <formInput label="パスワード" type="password"/>
-            <formInput label="パスワード確認" type="password"/>
+            <FormInput label="ID" />
+            <FormInput label="名前" />
+            <FormInput label="メールアドレス" />
+            <FormInput label="機器ID" v-if="target == 'teacher'" />
+            <FormInput label="パスワード" type="password" />
+            <FormInput label="パスワード確認" type="password" />
             <button class="submit" type="submit">登録</button>
         </form>
-        <NuxtLink class="signup" :to="'/'+ target +'/login'">ログインはこちら</NuxtLink>
+        <NuxtLink class="signup" :to="'/' + target + '/login'">ログインはこちら</NuxtLink>
     </section>
 </template>
 <script setup>
-
 const props = defineProps({
     mode: {
         type: String,
-        default: 'student',
-    }
-})
-const target = props.mode == 'teacher' ? 'teacher':'student'
+        default: "student",
+    },
+});
+const target = props.mode == "teacher" ? "teacher" : "student";
 </script>
 <style scoped>
 .container {
@@ -29,28 +28,28 @@ const target = props.mode == 'teacher' ? 'teacher':'student'
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
-.title{
+.title {
     font-weight: 700;
     color: var(--black);
     margin-bottom: 20px;
 }
-.form{
+.form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 20px;
 }
-.input_wrapper{
+.input_wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
-.form_input{
+.form_input {
     width: 240px;
     height: 40px;
     border-radius: 5px;
@@ -59,30 +58,30 @@ const target = props.mode == 'teacher' ? 'teacher':'student'
     font-size: 16px;
     color: var(--black);
 }
-.form_input:focus{
+.form_input:focus {
     outline: none;
     border: 2px solid var(--primary);
 }
-.submit{
-        width: 160px;
-        Height: 40px;
-        border-radius: 10px;
-        border: none;
-        background-color: var(--primary);
-        color: var(--white);
-        font-size: 16px;
-        font-weight: 700;
-        box-shadow: 0px 1px 2px rgba(32, 33, 36, .5);
-        margin-top: 20px;
+.submit {
+    width: 160px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0px 1px 2px rgba(32, 33, 36, 0.5);
+    margin-top: 20px;
 }
-.submit:hover{
+.submit:hover {
     filter: brightness(90%);
 }
-.submit:active{
+.submit:active {
     filter: none;
     transform: scale(0.98);
 }
-.signup{
+.signup {
     margin-top: 70px;
     font-size: 16px;
     font-weight: 700;

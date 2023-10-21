@@ -1,7 +1,7 @@
 <template>
-    <nuxt-link class="link" :to="path" tabindex="-1">
+    <NuxtLink class="link" :to="path" tabindex="-1">
         <button class="button">{{ text }}</button>
-    </nuxt-link >
+    </NuxtLink >
 </template>
 
 <script setup>
