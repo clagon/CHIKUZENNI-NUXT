@@ -16,8 +16,10 @@ const props = defineProps({
         required: true,
     },
 });
-const emits = defineEmits();
-const onClick = () => {
+const emits = defineEmits(["click"]);
+const onClick = e => {
+    console.log("emitted");
+
     emits("click", {
         status: props.status,
         color: props.color,
@@ -28,18 +30,31 @@ const onClick = () => {
 .status_message {
     font-size: 24px;
     font-weight: 700;
-    color: #f1f3f5;
+    color: var(--black);
 }
-.other_card {
-    font-family: "Poppins", sans-serif;
+li.other_card {
     position: relative;
     width: 100%;
     aspect-ratio: 3/1;
-    background-color: var(--primary);
+    background-color: var(--white);
+    color: var(--black);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border: 1px solid #e5e7eb;
+}
+.other_card:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.other_card:hover {
+    background-color: var(--primary);
+    border: none;
+    border-top: 1px solid #e5e7eb;
+}
+.other_card:hover .status_message {
+    color: var(--white);
 }
 .status_color {
     --width: 15px;
@@ -50,6 +65,6 @@ const onClick = () => {
     top: calc(50% - calc(var(--width) / 2));
     left: 30px;
     background-color: var(--status_color);
-    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2); */
 }
 </style>

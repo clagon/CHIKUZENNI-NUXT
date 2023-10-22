@@ -1,5 +1,5 @@
 <template>
-    <section class="status">
+    <section class="status" ref="pull">
         <input type="checkbox" id="status" class="status_input" v-model="isStatusOpen" />
         <div class="current_status" :style="statusStyle">
             <span class="status_color" :style="{ '--status_color': currentStatus.color }"></span>
@@ -12,8 +12,8 @@
         </div>
         <ul class="other">
             <DashboardOtherCard
-                v-for="status in otherStatuses"
-                :key="status.status"
+                v-for="(status, i) in otherStatuses"
+                :key="i"
                 :status="status.status"
                 :color="status.color"
                 @click="onClick(status)"
@@ -35,19 +35,35 @@ const statusStyle = computed(() => {
               "border-radius": "8px",
           };
 });
-const { data, pending, error, refresh } = await useFetch(
-    "https://chikuzenni-mock-api.vercel.app/teacherStatus"
-);
-if (error.value) console.log(error.value);
-currentStatus.value = data.value.currentStatus;
-statuses.value = data.value.statuses;
+const {
+    data: statusFetched,
+    pending,
+    error,
+    refresh,
+} = await customApi("https://chikuzenni-mock-api.vercel.app/teacherStatus");
+if (error.value) alert(error.value);
+currentStatus.value = statusFetched.value.currentStatus;
+statuses.value = statusFetched.value.statuses;
 const otherStatuses = computed(() => {
     return statuses.value.filter(status => status.status !== currentStatus.value.status);
 });
-const onClick = status => {
-    currentStatus = status;
+
+const onClick = async status => {
     isStatusOpen.value = false;
+    const { data, pending, error, refresh } = await customApi(
+        "https://chikuzenni-mock-api.vercel.app/teacherStatusChange",
+        JSON.stringify(status),
+        "POST"
+    );
+    console.log(data.value);
+    currentStatus.value = data.value;
 };
+const pull = ref(null);
+onMounted(() => {
+    document.addEventListener("click", e => {
+        if (pull.value && !pull.value.contains(e.target)) isStatusOpen.value = false;
+    });
+});
 </script>
 
 <style scoped>
@@ -57,13 +73,11 @@ ol {
     margin: 0;
     padding: 0;
 }
-body {
-    background-color: #717790;
-}
 .status {
     position: relative;
     width: 420px;
     height: 140px;
+    z-index: 10;
     /* box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.221); */
 }
 .status_input {
@@ -89,7 +103,7 @@ body {
     top: calc(50% - calc(var(--width) / 2));
     left: 30px;
     background-color: var(--status_color);
-    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2); */
 }
 .status_message {
     font-size: 24px;
@@ -131,22 +145,8 @@ span.material-symbols-outlined {
     max-height: 1000px;
     margin-bottom: 1em;
 }
-.other_card {
-    font-family: "Poppins", sans-serif;
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3/1;
-    background-color: var(--primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
 .other_card:last-child {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-}
-.other_card:hover {
-    filter: brightness(1.1);
 }
 </style>

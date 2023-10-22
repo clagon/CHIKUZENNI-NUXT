@@ -2,11 +2,18 @@
     <DashboardHeader />
     <DashboardSidebar>
         <DashboardSidebarContent title="ホーム" icon="home" route="/teacher/dashboard" />
+        <DashboardSidebarContent
+            title="科目一覧"
+            icon="clinical_notes"
+            route="/teacher/dashboard/list"
+        />
         <DashboardSidebarContent title="追加" icon="group_add" route="/teacher/dashboard/add" />
         <DashboardSidebarContent title="設定" icon="settings" route="/teacher/dashboard/settings" />
     </DashboardSidebar>
     <div class="content" :style="styles">
-        <NuxtPage />
+        <div class="container">
+            <NuxtPage />
+        </div>
     </div>
 </template>
 
@@ -65,5 +72,12 @@ const styles = computed(() => {
     width: 100%;
     height: 100%;
     padding-top: var(--dashboard-header-height);
+}
+.container {
+    width: 100%;
+    height: 100%;
+    padding-left: 140px;
+    padding-top: 40px;
+    padding-right: 40px;
 }
 </style>
