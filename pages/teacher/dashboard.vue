@@ -1,5 +1,5 @@
 <template>
-    <DashboardHeader />
+    <DashboardHeader route="/teacher/dashboard" />
     <DashboardSidebar>
         <DashboardSidebarContent title="ホーム" icon="home" route="/teacher/dashboard" />
         <DashboardSidebarContent
