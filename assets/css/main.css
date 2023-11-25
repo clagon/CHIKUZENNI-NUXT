@@ -4,6 +4,7 @@
     --white: #f1f3f5;
     --black: #020117;
     --gray: #acadaf;
+    --light-gray: #e5e7eb;
 
     --dashboard-header-height: 64px;
     --dashboard-sidebar-closed-width: var(--dashboard-header-height);
