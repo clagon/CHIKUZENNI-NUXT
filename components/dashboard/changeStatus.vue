@@ -1,11 +1,12 @@
 <template>
     <DashboardContent title="公開ステータスを変更する">
-        <PulldownSelect />
+        <!-- <PulldownSelect /> -->
+        <DashboardCurrentStatus />
     </DashboardContent>
 </template>
 <style scoped>
 .section {
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--light-gray);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 40px;
