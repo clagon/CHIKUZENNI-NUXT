@@ -1,6 +1,5 @@
-<template></template>
-<script setup>
-useSeoMeta({
-    title: `クラスを作成`,
-});
-</script>
+<template>
+    <DashboardContent title="学生を招待する">
+        <DashboardAddStudent />
+    </DashboardContent>
+</template>
