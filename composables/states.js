@@ -38,6 +38,33 @@ export const useSideStore = defineStore("side", () => {
     }
     return { selected, changeSelected };
 });
+
+export const useSubjectStore = defineStore("subject", () => {
+    const currentSubject = ref("");
+    const subjectData = ref([]);
+    const mode = ref("list");
+    const modes = ["list", "add"];
+    async function set(subject_id, subject_mode) {
+        if (modes.includes(subject_mode)) {
+            mode.value = subject_mode;
+        } else {
+            mode.value = "list";
+        }
+        if (subject_id !== currentSubject.value) {
+            subjectData.value = [];
+            const { data, pending, error, refresh } = await customApi(
+                `https://chikuzenni-mock-api.vercel.app/subjectmembers/${subject_id}`
+            );
+            if (error.value === null) {
+                subjectData.value = data.value;
+                currentSubject.value = subject_id;
+            }
+        }
+    }
+
+    return { currentSubject, subjectData, set, mode };
+});
+
 export const useScrollableStore = defineStore("scrollable", () => {
     const isScrollable = ref(true);
     function change() {
