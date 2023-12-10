@@ -1,8 +1,10 @@
 <script setup>
 const modal = useModalStore();
 const statusStore = useStatusStore();
+const scroll = useScrollableStore();
 const onClickClose = () => {
     modal.close();
+    scroll.set(true);
 };
 const statuses = ref([]);
 const {

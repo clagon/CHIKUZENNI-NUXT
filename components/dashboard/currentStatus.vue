@@ -1,8 +1,10 @@
 <script setup>
 const modal = useModalStore();
 const statusStore = useStatusStore();
+const scroll = useScrollableStore();
 const onClickOpen = () => {
     modal.open();
+    scroll.set(false);
 };
 </script>
 <template>

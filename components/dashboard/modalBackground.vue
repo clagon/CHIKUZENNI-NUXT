@@ -1,5 +1,6 @@
 <script setup>
 const modal = useModalStore();
+const scroll = useScrollableStore();
 const style = computed(() => {
     return {
         display: modal.isOpen ? "flex" : "none",
@@ -10,7 +11,10 @@ const style = computed(() => {
 const background = ref(null);
 onMounted(() => {
     background.value.addEventListener("click", e => {
-        if (e.target == background.value && !modal.isOpen.value) modal.close();
+        if (e.target == background.value && !modal.isOpen.value) {
+            modal.close();
+            scroll.set(true);
+        }
     });
 });
 </script>

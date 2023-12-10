@@ -21,6 +21,7 @@
 const open = useOpenStore();
 const side = useSideStore();
 const route = useRoute();
+const scroll = useScrollableStore();
 
 // titleタグ/Headタグの設定
 const makeTitle = () => {
@@ -63,6 +64,7 @@ const styles = computed(() => {
         "padding-left": open.isOpen
             ? "var(--dashboard-sidebar-opened-width)"
             : "var(--dashboard-header-height)",
+        overflow: scroll.isScrollable ? "auto" : "hidden",
     };
 });
 </script>

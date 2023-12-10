@@ -38,3 +38,13 @@ export const useSideStore = defineStore("side", () => {
     }
     return { selected, changeSelected };
 });
+export const useScrollableStore = defineStore("scrollable", () => {
+    const isScrollable = ref(true);
+    function change() {
+        isScrollable.value = !isScrollable.value;
+    }
+    function set(value) {
+        isScrollable.value = value;
+    }
+    return { isScrollable, change, set };
+});
