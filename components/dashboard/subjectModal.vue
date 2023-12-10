@@ -9,7 +9,7 @@
                     value="list"
                     v-model="selected"
                 />
-                <label for="tab_list" class="tab_label">List</label>
+                <label for="tab_list" class="tab_label">一覧</label>
             </div>
             <div class="tab">
                 <input
@@ -19,7 +19,7 @@
                     value="add"
                     v-model="selected"
                 />
-                <label for="tab_add" class="tab_label">Add</label>
+                <label for="tab_add" class="tab_label">追加</label>
             </div>
         </div>
         <div class="content">
@@ -31,7 +31,7 @@
 import { DashboardSubjectTabAdd, DashboardSubjectTabList } from "#components";
 const modal = useModalStore();
 const subject = useSubjectStore();
-const selected = ref("");
+const selected = ref("list");
 watch(
     () => subject.mode,
     value => {
@@ -57,6 +57,7 @@ const current_component = computed(() => {
     align-items: center;
     list-style: none;
     padding: 0;
+    padding-top: 20px;
     margin: 0;
 }
 .tab {
@@ -67,9 +68,10 @@ const current_component = computed(() => {
     width: 100%;
     display: block;
     text-align: center;
-    padding: 10px 50px 0;
+    padding: 10px 50px 5px;
     border-bottom: 1px solid var(--gray);
     cursor: pointer;
+    font-size: 20px;
 }
 .tab > input[type="radio"] {
     display: none;

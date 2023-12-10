@@ -67,6 +67,8 @@ const onclickLower = async mode => {
     align-items: center;
     border-top: 1px solid var(--gray);
     padding: 0 10px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .lower_button {
     padding: 10px;
