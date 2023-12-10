@@ -25,12 +25,12 @@ const onclickLower = async mode => {
             <p class="subject_name">{{ subject.name }}</p>
         </div>
         <div class="lower" v-if="!isPending">
-            <p class="open_list lower_button" @click="onclickLower('list')">
+            <button class="open_list lower_button" @click="onclickLower('list')">
                 <span class="material-symbols-outlined"> group </span>
-            </p>
-            <p class="open_add lower_button" @click="onclickLower('add')">
+            </button>
+            <button class="open_add lower_button" @click="onclickLower('add')">
                 <span class="material-symbols-outlined"> person_add </span>
-            </p>
+            </button>
         </div>
     </div>
 </template>

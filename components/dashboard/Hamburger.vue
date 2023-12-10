@@ -1,6 +1,12 @@
 <template>
-    <div class="hamburger-wrapper" aria-controls="sidebar" :aria-expanded="open.isOpen">
-        <button class="hamburger" @click="onClick()">
+    <div class="hamburger-wrapper">
+        <button
+            class="hamburger"
+            aria-controls="sidebar"
+            :aria-expanded="open.isOpen"
+            @click="onClick()"
+            aria-label="サイドバーを開く"
+        >
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>

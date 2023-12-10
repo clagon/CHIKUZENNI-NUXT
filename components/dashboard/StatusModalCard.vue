@@ -17,7 +17,7 @@ const onClick = () => {
 };
 </script>
 <template>
-    <div class="status_content" :class="{ selected: isSelected }" @click="onClick">
+    <div class="status_content" :class="{ selected: isSelected }" @click="onClick" tabindex="0">
         <div class="status_color" :style="'--status_color:' + status.color"></div>
         <div class="status_text">{{ status.status }}</div>
     </div>
@@ -37,6 +37,9 @@ const onClick = () => {
 .status_content.selected {
     border: 2px solid var(--primary);
     box-shadow: 0 0 3px var(--primary);
+}
+.status_content.selected:focus {
+    outline-offset: 5px;
 }
 .status_color {
     width: 15px;

@@ -62,6 +62,7 @@ watch(
 }
 .sidebar-content.open {
     justify-content: flex-start;
+    padding-left: 6px;
 }
 .inner {
     width: 80%;
@@ -71,6 +72,7 @@ watch(
     justify-content: center;
     align-items: center;
     border-radius: 16px;
+    overflow: hidden;
 }
 .inner .open {
     height: calc(var(--dashboard-sidebar-content-height) - 20px);
@@ -86,7 +88,7 @@ watch(
     background-color: var(--primary);
 }
 .open .inner {
-    margin-left: 6px;
+    /* margin-left: 6px; */
     padding: 4px;
     justify-content: flex-start;
 }

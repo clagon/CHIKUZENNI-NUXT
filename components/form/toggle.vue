@@ -1,6 +1,9 @@
 <template>
-    <div class="toggle" for="toggle" @click="onClick" :class="{ checked: isOn }">
-        <div class="toggle_inner"></div>
+    <div class="togglecontainer">
+        <input type="checkbox" name="toggle" id="toggle" style="display: none" />
+        <label class="toggle" for="toggle" @click="onClick" :class="{ checked: isOn }" tabindex="0">
+            <div class="toggle_inner"></div>
+        </label>
     </div>
 </template>
 <script setup>
@@ -18,7 +21,12 @@ const onClick = e => {
 };
 </script>
 <style scoped>
+.togglecontainer {
+    width: 50px;
+    height: 30px;
+}
 .toggle {
+    display: block;
     position: relative;
     width: 50px;
     height: 30px;
@@ -43,5 +51,8 @@ const onClick = e => {
 }
 .toggle.checked > .toggle_inner {
     left: calc(100% - 25px);
+}
+.toggle:focus + .toggle_inner {
+    outline: 2px solid black;
 }
 </style>

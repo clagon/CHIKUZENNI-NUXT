@@ -1,5 +1,5 @@
 <template>
-    <nav class="sidebar" :style="styles">
+    <nav id="sidebar" class="sidebar" :style="styles">
         <slot />
     </nav>
 </template>
