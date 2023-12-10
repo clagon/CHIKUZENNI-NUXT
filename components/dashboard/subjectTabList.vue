@@ -13,6 +13,12 @@
             v-for="i in 10"
             :key="i"
         ></div>
+        <div
+            class="noonehere"
+            v-if="!subjectState.pendingRender && subjectState.subjectData.length == 0"
+        >
+            まだメンバーはいません
+        </div>
     </div>
 </template>
 <script setup>
@@ -65,6 +71,13 @@ const subjectState = useSubjectStore();
 }
 .listmember.pending > p {
     display: none;
+}
+.noonehere {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    color: var(--gray);
 }
 @supports not selector(::-webkit-scrollbar) {
     .tablist_container {

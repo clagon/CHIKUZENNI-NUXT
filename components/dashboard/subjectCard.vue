@@ -4,6 +4,10 @@ const props = defineProps({
         type: Object,
         required: true,
     },
+    isPending: {
+        type: Boolean,
+        default: false,
+    },
 });
 const modalStore = useModalStore();
 const subjectStore = useSubjectStore();
@@ -16,11 +20,11 @@ const onclickLower = async mode => {
 };
 </script>
 <template>
-    <div class="subject_card">
-        <div class="upper">
+    <div class="subject_card" :class="{ pending: isPending }">
+        <div class="upper" v-if="!isPending">
             <p class="subject_name">{{ subject.name }}</p>
         </div>
-        <div class="lower">
+        <div class="lower" v-if="!isPending">
             <p class="open_list lower_button" @click="onclickLower('list')">
                 <span class="material-symbols-outlined"> group </span>
             </p>
@@ -45,6 +49,11 @@ const onclickLower = async mode => {
     grid-template-areas:
         "upper"
         "lower";
+}
+.pending {
+    background-image: linear-gradient(45deg, #fff 0%, #eee 50%, #fff 100%);
+    background-size: 200% 100%;
+    animation: pending 3s infinite;
 }
 .upper {
     grid-area: upper;
@@ -88,5 +97,16 @@ const onclickLower = async mode => {
 }
 .lower_button:active {
     background-color: #ddd;
+}
+@keyframes pending {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+    /* 100% {
+        background-position: 0 0;
+    } */
 }
 </style>
