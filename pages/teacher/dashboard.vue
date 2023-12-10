@@ -7,7 +7,7 @@
             icon="clinical_notes"
             route="/teacher/dashboard/list"
         />
-        <DashboardSidebarContent title="追加" icon="group_add" route="/teacher/dashboard/add" />
+        <!-- <DashboardSidebarContent title="追加" icon="group_add" route="/teacher/dashboard/add" /> -->
         <DashboardSidebarContent title="設定" icon="settings" route="/teacher/dashboard/settings" />
     </DashboardSidebar>
     <div class="content" :style="styles">
