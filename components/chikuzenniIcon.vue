@@ -4,6 +4,8 @@
             class="image"
             src="~/assets/img/chikuzenni_icon1.png"
             alt="筑前煮のロゴアイコン"
+            width="40px"
+            height="40px"
         />
         <h1 class="text">筑前煮</h1>
     </NuxtLink>
@@ -37,6 +39,7 @@ const styles = computed(() => {
     height: 60%;
     object-fit: contain;
     margin-top: 10px;
+    aspect-ratio: 1/1;
 }
 .text {
     font-size: var(--fontsize);
