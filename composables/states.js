@@ -44,6 +44,10 @@ export const useSubjectStore = defineStore("subject", () => {
     const subjectData = ref([]);
     const mode = ref("list");
     const modes = ["list", "add"];
+    const pendingRender = ref(true);
+    function setPendingRender(value) {
+        pendingRender.value = value;
+    }
     async function set(subject_id, subject_mode) {
         if (modes.includes(subject_mode)) {
             mode.value = subject_mode;
@@ -62,7 +66,7 @@ export const useSubjectStore = defineStore("subject", () => {
         }
     }
 
-    return { currentSubject, subjectData, set, mode };
+    return { currentSubject, subjectData, set, mode, pendingRender, setPendingRender };
 });
 
 export const useScrollableStore = defineStore("scrollable", () => {

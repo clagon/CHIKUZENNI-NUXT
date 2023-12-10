@@ -8,8 +8,10 @@ const props = defineProps({
 const modalStore = useModalStore();
 const subjectStore = useSubjectStore();
 const onclickLower = async mode => {
+    subjectStore.setPendingRender(true);
+    modalStore.open();
     new subjectStore.set(props.subject.id, mode).then(() => {
-        modalStore.open();
+        subjectStore.setPendingRender(false);
     });
 };
 </script>

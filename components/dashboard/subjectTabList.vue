@@ -1,12 +1,18 @@
 <template>
+    <div class="list_title">
+        <p class="list_title_main">メンバー</p>
+        <p class="list_title_nums">人数: {{ subjectState.subjectData.length }}人</p>
+    </div>
     <div class="tablist_container">
-        <div class="list_title">
-            <p class="list_title_main">メンバー</p>
-            <p class="list_title_nums">人数: {{ subjectState.subjectData.length }}人</p>
-        </div>
         <div class="listmember" v-for="member in subjectState.subjectData">
             <p>{{ member }}</p>
         </div>
+        <div
+            class="listmember pending"
+            v-if="subjectState.pendingRender"
+            v-for="i in 10"
+            :key="i"
+        ></div>
     </div>
 </template>
 <script setup>
@@ -44,11 +50,21 @@ const subjectState = useSubjectStore();
 }
 .listmember {
     width: 100%;
-    height: 70px;
     background-color: var(--white);
     /* border-radius: 10px; */
     border-bottom: 1px solid var(--gray);
     padding: 20px 0 20px 10px;
+}
+.listmember.pending {
+    padding-top: 36px;
+    background-image: linear-gradient(45deg, #eee 0%, #ddd 50%, #eee 100%);
+    background-size: 200% 100%;
+    border: none;
+    margin-bottom: 2px;
+    animation: pending 3s infinite;
+}
+.listmember.pending > p {
+    display: none;
 }
 @supports not selector(::-webkit-scrollbar) {
     .tablist_container {
@@ -65,5 +81,16 @@ const subjectState = useSubjectStore();
 .tablist_container::-webkit-scrollbar-thumb {
     background-color: var(--gray);
     border-radius: 9999px;
+}
+@keyframes pending {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+    /* 100% {
+        background-position: 0 0;
+    } */
 }
 </style>
