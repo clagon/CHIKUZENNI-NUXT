@@ -32,6 +32,7 @@ const onClick = () => {
     grid-template-columns: 50px 3fr;
     grid-template-rows: 1fr;
     grid-template-areas: "status_color status_text";
+    cursor: pointer;
 }
 .status_content.selected {
     border: 2px solid var(--primary);

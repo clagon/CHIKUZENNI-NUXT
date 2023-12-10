@@ -17,10 +17,19 @@ onMounted(() => {
         }
     });
 });
+const props = defineProps({
+    component: {
+        // type: defineComponent,
+        required: true,
+    },
+});
 </script>
 <template>
     <div class="modal_background" :style="style" ref="background">
-        <DashboardChangeStatusModal />
+        <!-- <NuxtIsland :name="newComponent"></NuxtIsland> -->
+        <DashboardModal>
+            <component :is="component"></component>
+        </DashboardModal>
     </div>
 </template>
 <style scoped>

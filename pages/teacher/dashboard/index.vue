@@ -1,7 +1,10 @@
+<script setup>
+import { DashboardChangeStatusModal } from "#components";
+</script>
 <template>
     <DashboardChangeStatus />
     <DashboardSetStatus />
-    <DashboardModalBackground />
+    <DashboardModalBackground :component="DashboardChangeStatusModal" />
 </template>
 <script setup></script>
 

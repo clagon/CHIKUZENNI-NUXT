@@ -32,23 +32,17 @@ const onClickStatus = async status => {
 };
 </script>
 <template>
-    <div class="change_modal">
-        <div class="status_contaier">
-            <DashboardModalCard
-                @click="onClickStatus(status)"
-                :status="status"
-                :is-selected="
-                    status.color === statusStore.currentStatus.color &&
-                    status.status === statusStore.currentStatus.status
-                "
-                v-for="(status, i) in statuses"
-                :key="i"
-            />
-        </div>
-        <div class="close" @click="onClickClose">
-            <span class="material-symbols-outlined"> close </span>
-        </div>
-        <!-- <button class="save">保存</button> -->
+    <div class="status_contaier">
+        <DashboardStatusModalCard
+            @click="onClickStatus(status)"
+            :status="status"
+            :is-selected="
+                status.color === statusStore.currentStatus.color &&
+                status.status === statusStore.currentStatus.status
+            "
+            v-for="(status, i) in statuses"
+            :key="i"
+        />
     </div>
 </template>
 <style scoped>
