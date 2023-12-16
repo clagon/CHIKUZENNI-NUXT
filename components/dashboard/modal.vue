@@ -4,6 +4,7 @@ const close = ref(null);
 const modal = ref(null);
 const modalState = useModalStore();
 const scroll = useScrollableStore();
+const SmolModalStore = useSmolModalStore();
 const onClickClose = () => {
     modalState.close();
     scroll.set(true);
@@ -40,6 +41,17 @@ watch(
             activate();
         } else {
             deactivate();
+            deleteStore.clear();
+        }
+    }
+);
+watch(
+    () => SmolModalStore.isOpen,
+    value => {
+        if (value) {
+            deactivate();
+        } else {
+            activate();
         }
     }
 );
