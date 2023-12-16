@@ -31,6 +31,9 @@ const onclickLower = async mode => {
             <button class="open_add lower_button" @click="onclickLower('add')">
                 <span class="material-symbols-outlined"> person_add </span>
             </button>
+            <button class="open_settings lower_button" @click="onclickLower('settings')">
+                <span class="material-symbols-outlined"> settings </span>
+            </button>
         </div>
     </div>
 </template>

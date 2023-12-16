@@ -19,7 +19,17 @@
                     value="add"
                     v-model="selected"
                 />
-                <label for="tab_add" class="tab_label">追加</label>
+                <label for="tab_add" tabindex="0" class="tab_label">追加</label>
+            </div>
+            <div class="tab">
+                <input
+                    type="radio"
+                    name="subject_tab"
+                    id="tab_settings"
+                    value="settings"
+                    v-model="selected"
+                />
+                <label for="tab_settings" tabindex="0" class="tab_label">settings</label>
             </div>
         </div>
         <div class="content">
@@ -28,7 +38,11 @@
     </div>
 </template>
 <script setup>
-import { DashboardSubjectTabAdd, DashboardSubjectTabList } from "#components";
+import {
+    DashboardSubjectTabAdd,
+    DashboardSubjectTabList,
+    DashboardSubjectTabSettings,
+} from "#components";
 const modal = useModalStore();
 const subject = useSubjectStore();
 const selected = ref("list");
@@ -41,7 +55,13 @@ watch(
     }
 );
 const current_component = computed(() => {
-    return selected.value === "list" ? DashboardSubjectTabList : DashboardSubjectTabAdd;
+    if (selected.value == "list") {
+        return DashboardSubjectTabList;
+    } else if (selected.value == "add") {
+        return DashboardSubjectTabAdd;
+    } else if (selected.value == "settings") {
+        return DashboardSubjectTabSettings;
+    }
 });
 </script>
 <style scoped>

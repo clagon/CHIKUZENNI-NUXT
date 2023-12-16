@@ -16,6 +16,34 @@ export const useModalStore = defineStore("modal", () => {
     return { isOpen, change, open, close };
 });
 
+export const useDeleteStore = defineStore("delete", () => {
+    const members = ref([]);
+    function set(value) {
+        members.value = value;
+    }
+    function clear() {
+        members.value = [];
+    }
+
+    return { members, set, clear };
+});
+
+export const useSmolModalStore = defineStore("smolModal", () => {
+    const isOpen = ref(false);
+    const modal = ref(null);
+    function change() {
+        isOpen.value = !isOpen.value;
+    }
+    function open() {
+        isOpen.value = true;
+    }
+    function close() {
+        isOpen.value = false;
+    }
+
+    return { isOpen, change, open, close };
+});
+
 export const useStatusStore = defineStore("status", () => {
     const currentStatus = ref("");
     function set(value) {
@@ -43,7 +71,8 @@ export const useSubjectStore = defineStore("subject", () => {
     const currentSubject = ref("");
     const subjectData = ref([]);
     const mode = ref("list");
-    const modes = ["list", "add"];
+    const modes = ["list", "add", "settings"];
+    const goterror = ref(false);
     const pendingRender = ref(true);
     function setPendingRender(value) {
         pendingRender.value = value;
@@ -62,11 +91,13 @@ export const useSubjectStore = defineStore("subject", () => {
             if (error.value === null) {
                 subjectData.value = data.value;
                 currentSubject.value = subject_id;
+            } else {
+                goterror.value = true;
             }
         }
     }
 
-    return { currentSubject, subjectData, set, mode, pendingRender, setPendingRender };
+    return { currentSubject, subjectData, set, mode, pendingRender, setPendingRender, goterror };
 });
 
 export const useScrollableStore = defineStore("scrollable", () => {
