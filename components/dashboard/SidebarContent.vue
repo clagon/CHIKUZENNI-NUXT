@@ -128,4 +128,39 @@ watch(
 .selected .title {
     color: var(--white);
 }
+/* responsive */
+@media (max-width: 768px) {
+    .sidebar-content {
+        flex-shrink: 1;
+        flex-grow: 1;
+        width: 100%;
+        height: 100%;
+    }
+    .sidebar-content.open {
+        padding-left: 0;
+    }
+    .title {
+        display: none !important;
+    }
+    .inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        border: 2px solid var(--light-gray);
+        border-right: none;
+    }
+    .inner:first-child {
+        border-left: none;
+    }
+    .open .inner {
+        justify-content: center;
+    }
+    .open .icon {
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(0);
+    }
+}
 </style>

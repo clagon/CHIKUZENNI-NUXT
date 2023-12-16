@@ -20,7 +20,7 @@ const onClickOpen = () => {
 <style scoped>
 .currentStatus {
     padding: 20px;
-    width: 400px;
+    width: min(400px, 95%);
     height: 100px;
     border-radius: 8px;
     border: 1px solid var(--light-gray);

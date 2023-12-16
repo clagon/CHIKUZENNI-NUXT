@@ -1,32 +1,33 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@vue/eslint-config-prettier": "^8.0.0",
-    "@vueuse/core": "^10.7.0",
-    "@vueuse/nuxt": "^10.7.0",
-    "eslint": "^8.51.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-vue": "^9.17.0",
-    "nuxt": "^3.7.4",
-    "prettier": "^3.0.3",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
-  },
-  "dependencies": {
-    "@pinia/nuxt": "^0.5.1",
-    "@vueuse/integrations": "^10.7.0",
-    "destyle.css": "^4.0.0",
-    "focus-trap": "^7.5.4",
-    "pinia": "^2.1.7"
+	"name": "nuxt-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"devDependencies": {
+		"@nuxt/devtools": "latest",
+		"@vue/eslint-config-prettier": "^8.0.0",
+		"@vueuse/core": "^10.7.0",
+		"@vueuse/nuxt": "^10.7.0",
+		"eslint": "^8.51.0",
+		"eslint-plugin-prettier": "^5.0.1",
+		"eslint-plugin-vue": "^9.17.0",
+		"nuxt": "^3.7.4",
+		"prettier": "^3.0.3",
+		"vue": "^3.3.4",
+		"vue-router": "^4.2.5"
+	},
+	"dependencies": {
+		"@pinia/nuxt": "^0.5.1",
+		"@vueuse/integrations": "^10.7.0",
+		"destyle.css": "^4.0.0",
+		"firebase": "^10.7.1",
+		"focus-trap": "^7.5.4",
+		"pinia": "^2.1.7"
   }
 }

@@ -103,4 +103,10 @@ watch(
 .close:hover {
     filter: brightness(0.9);
 }
+@media (max-width: 768px) {
+    .change_modal {
+        width: 90%;
+        height: 700px;
+    }
+}
 </style>

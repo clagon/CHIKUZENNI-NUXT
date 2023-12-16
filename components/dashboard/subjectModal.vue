@@ -114,4 +114,9 @@ const current_component = computed(() => {
     background-color: var(--white);
     border-radius: 10px;
 }
+@media (max-width: 768px) {
+    .subject-modal-container {
+        width: 100%;
+    }
+}
 </style>

@@ -29,6 +29,11 @@ if (error.value) console.log(error.value);
 else values.value = data.value;
 </script>
 <style scoped>
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 .section:has(.save) {
     border: 1px solid #e5e7eb;
     border-radius: 8px;
@@ -67,5 +72,10 @@ else values.value = data.value;
 }
 .save_button:active {
     background-color: #9ca3af;
+}
+@media (max-width: 768px) {
+    ul {
+        padding-top: 20px;
+    }
 }
 </style>

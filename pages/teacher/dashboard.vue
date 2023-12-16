@@ -57,6 +57,13 @@ useHead({
             href: "/favicon.png",
         },
     ],
+
+    // link: [
+    //     {
+    //         rel: "stylesheet",
+    //         href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap",
+    //     },
+    // ],
 });
 // サイドバーの開閉によってpadding-leftを変更
 const styles = computed(() => {
@@ -81,5 +88,21 @@ const styles = computed(() => {
     padding-left: 140px;
     padding-top: 40px;
     padding-right: 40px;
+}
+@media (max-width: 768px) {
+    .content {
+        padding-left: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-bottom: 100px;
+    }
+    .container {
+        width: 90%;
+        height: auto;
+        padding: 0;
+        padding-left: 10px !important;
+    }
 }
 </style>

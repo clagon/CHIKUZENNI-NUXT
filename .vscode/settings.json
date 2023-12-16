@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "Nuxt"
-    ]
+    ],
+    "nuxt.isNuxtApp": false
 }

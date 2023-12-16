@@ -2,5 +2,5 @@
 export default defineNuxtConfig({
     devtools: { enabled: true, timeline: { enabled: true } },
     css: ["destyle.css/destyle.min.css", "@/assets/css/main.css"],
-    modules: ["@pinia/nuxt"],
+    modules: ["@pinia/nuxt", "@vueuse/nuxt"],
 });

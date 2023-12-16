@@ -25,6 +25,7 @@ const props = defineProps({
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 9999;
 }
 .left {
     width: 50%;
@@ -39,5 +40,10 @@ const props = defineProps({
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+@media (max-width: 768px) {
+    .header {
+        background-color: #fff;
+    }
 }
 </style>
