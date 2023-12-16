@@ -14,9 +14,14 @@ const subjectStore = useSubjectStore();
 const onclickLower = async mode => {
     subjectStore.setPendingRender(true);
     modalStore.open();
-    new subjectStore.set(props.subject.id, mode).then(() => {
-        subjectStore.setPendingRender(false);
-    });
+    new subjectStore.set(props.subject.id, mode)
+        .catch(err => {
+            alert(err);
+            subjectStore.setPendingRender(false);
+        })
+        .then(() => {
+            subjectStore.setPendingRender(false);
+        });
 };
 </script>
 <template>

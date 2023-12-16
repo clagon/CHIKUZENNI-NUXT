@@ -27,16 +27,14 @@ const props = defineProps({
 <template>
     <div class="modal_background" :style="style" ref="background">
         <!-- <NuxtIsland :name="newComponent"></NuxtIsland> -->
-        <DashboardModal>
-            <component :is="component"></component>
-        </DashboardModal>
+        <DashboardModal :component="component" />
     </div>
 </template>
 <style scoped>
 .modal_background {
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,5 +43,6 @@ const props = defineProps({
     position: absolute;
     top: 0;
     left: 0;
+    backdrop-filter: blur(1px);
 }
 </style>

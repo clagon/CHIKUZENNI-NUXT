@@ -9,7 +9,7 @@
                     value="list"
                     v-model="selected"
                 />
-                <label for="tab_list" class="tab_label">一覧</label>
+                <label for="tab_list" tabindex="0" class="tab_label">一覧</label>
             </div>
             <div class="tab">
                 <input
@@ -83,6 +83,7 @@ const current_component = computed(() => {
 .tab {
     flex-grow: 1;
     flex-shrink: 1;
+    cursor: pointer;
 }
 .tab_label {
     width: 100%;
@@ -92,9 +93,15 @@ const current_component = computed(() => {
     border-bottom: 1px solid var(--gray);
     cursor: pointer;
     font-size: 20px;
+    white-space: nowrap;
+    text-wrap: nowrap;
 }
 .tab > input[type="radio"] {
     display: none;
+}
+.tab > input[type="radio"]:hover + .tab_label {
+    /* color: rgba(var(--primary-rgb), 0.5); */
+    border-bottom: 1px solid var(--primary);
 }
 .tab > input[type="radio"]:checked + .tab_label {
     color: var(--primary);
