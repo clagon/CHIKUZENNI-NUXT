@@ -7,20 +7,32 @@
         <p class="code">tutmirleid</p>
     </div>
     <div class="copy_code">
-        <button class="copy" @click="onClickCopy">
-            <span class="material-symbols-outlined"> content_copy </span>リンクをコピー
+        <button class="copy" @click="onClickCopy" @mouseout="onMouseout">
+            <span class="material-symbols-outlined"> content_copy </span
+            >{{ copied ? "コピーしました" : "リンクをコピー" }}
         </button>
     </div>
 </template>
 <script setup>
 const inviteCode = "tutmirleid";
+const copied = ref(false);
+const clicked = ref(false);
 const onClickCopy = async () => {
     const textToCopy = `https://chikuzenni.shoutaishimasu/invite?code=${inviteCode}`; // コピーするテキスト
     try {
         await navigator.clipboard.writeText(textToCopy);
-        console.log("Text copied to clipboard");
     } catch (err) {
         console.error("Failed to copy text: ", err);
+    }
+    copied.value = true;
+    clicked.value = true;
+};
+const onMouseout = () => {
+    if (clicked.value) {
+        setTimeout(() => {
+            copied.value = false;
+            clicked.value = false;
+        }, 1000);
     }
 };
 </script>
