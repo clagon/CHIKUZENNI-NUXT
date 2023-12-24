@@ -26,14 +26,6 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    colorDisabled: {
-        type: String,
-        default: "#000000",
-    },
-    bgDisabled: {
-        type: String,
-        default: "#ffffff",
-    },
 });
 const button = ref(null);
 const emit = defineEmits(["setRef"]);
@@ -43,7 +35,7 @@ onMounted(async () => {
 });
 const styleButton = computed(() => {
     return props.disabled
-        ? { color: props.colorDisabled, backgroundColor: props.bgDisabled }
+        ? { color: "var(--gray)", backgroundColor: "var(--smoke-white)" }
         : { color: props.color, backgroundColor: props.bg };
 });
 </script>
