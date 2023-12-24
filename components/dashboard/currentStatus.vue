@@ -15,6 +15,9 @@ const onClickOpen = () => {
         ></div>
         <div class="status_text">{{ statusStore.currentStatus.status }}</div>
         <button class="status_button" @click="onClickOpen">変更する</button>
+        <button class="status_open">
+            <span class="material-symbols-outlined" @click="onClickOpen"> expand_more </span>
+        </button>
     </div>
 </template>
 <style scoped>
@@ -59,5 +62,37 @@ const onClickOpen = () => {
 }
 .status_button:active {
     filter: brightness(0.9);
+}
+.status_open {
+    display: none;
+    justify-self: self-end;
+    margin-right: 20px;
+}
+.status_open:hover {
+    filter: brightness(0.9);
+}
+.status_open:active {
+    filter: brightness(0.8);
+}
+.status_open > span {
+    display: block;
+    font-size: 30px;
+    border-radius: 9999px;
+    width: 30px;
+    transform: translateY(3px);
+}
+.status_open > span:hover {
+    background-color: #0003;
+}
+.status_open > span:active {
+    background-color: #0004;
+}
+@media (max-width: 768px) {
+    .status_button {
+        display: none;
+    }
+    .status_open {
+        display: block;
+    }
 }
 </style>

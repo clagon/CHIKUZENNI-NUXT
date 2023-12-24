@@ -9,19 +9,10 @@ const props = defineProps({
         default: false,
     },
 });
-const modalStore = useModalStore();
-const subjectStore = useSubjectStore();
-const onclickLower = async mode => {
-    subjectStore.setPendingRender(true);
-    modalStore.open();
-    new subjectStore.set(props.subject.id, mode)
-        .catch(err => {
-            alert(err);
-            subjectStore.setPendingRender(false);
-        })
-        .then(() => {
-            subjectStore.setPendingRender(false);
-        });
+const emits = defineEmits(["clickOpenButton"]);
+const onclickOpenButton = async mode => {
+    console.log(mode);
+    emits("clickOpenButton", mode, props.subject);
 };
 </script>
 <template>
@@ -30,13 +21,13 @@ const onclickLower = async mode => {
             <p class="subject_name">{{ subject.name }}</p>
         </div>
         <div class="lower" v-if="!isPending">
-            <button class="open_list lower_button" @click="onclickLower('list')">
+            <button class="open_list lower_button" @click="onclickOpenButton('list')">
                 <span class="material-symbols-outlined"> group </span>
             </button>
-            <button class="open_add lower_button" @click="onclickLower('add')">
+            <button class="open_add lower_button" @click="onclickOpenButton('add')">
                 <span class="material-symbols-outlined"> person_add </span>
             </button>
-            <button class="open_settings lower_button" @click="onclickLower('settings')">
+            <button class="open_settings lower_button" @click="onclickOpenButton('settings')">
                 <span class="material-symbols-outlined"> settings </span>
             </button>
         </div>

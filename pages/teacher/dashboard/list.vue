@@ -3,7 +3,9 @@ import { DashboardDeleteMemberSmolModal, DashboardSubjectModal } from "#componen
 </script>
 <template>
     <DashboardSubjectContainer />
-    <DashboardModalBackground :component="DashboardSubjectModal" />
+    <DashboardModalSmolBackground>
+        <DashboardModal :component="DashboardSubjectModal" />
+    </DashboardModalSmolBackground>
     <DashboardSmolModal :component="DashboardDeleteMemberSmolModal"></DashboardSmolModal>
 </template>
 <!-- 科目作成 -->

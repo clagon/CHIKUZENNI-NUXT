@@ -66,6 +66,7 @@ const styles = computed(() => {
         align-items: center;
         justify-content: flex-start;
         padding-bottom: 100px;
+        margin: 20px 0;
     }
     .container {
         width: 90%;

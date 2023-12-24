@@ -4,7 +4,9 @@ import { DashboardChangeStatusModal } from "#components";
 <template>
     <DashboardChangeStatus />
     <DashboardSetStatus />
-    <DashboardModalBackground :component="DashboardChangeStatusModal" />
+    <DashboardModalBackground>
+        <DashboardModalSmol :component="DashboardChangeStatusModal" />
+    </DashboardModalBackground>
 </template>
 <script setup></script>
 

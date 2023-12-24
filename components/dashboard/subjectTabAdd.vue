@@ -1,16 +1,18 @@
 <template>
-    <div class="add_title">
-        <p class="add_title_main">メンバーを追加する</p>
-    </div>
-    <div class="invite_code">
-        <span class="invite_title">招待コード</span>
-        <p class="code">tutmirleid</p>
-    </div>
-    <div class="copy_code">
-        <button class="copy" @click="onClickCopy" @mouseout="onMouseout">
-            <span class="material-symbols-outlined"> content_copy </span
-            >{{ copied ? "コピーしました" : "リンクをコピー" }}
-        </button>
+    <div class="add_container">
+        <div class="add_title">
+            <p class="add_title_main">メンバーを追加する</p>
+        </div>
+        <div class="invite_code">
+            <span class="invite_title">招待コード</span>
+            <p class="code">tutmirleid</p>
+        </div>
+        <div class="copy_code">
+            <button class="copy" @click="onClickCopy" @mouseout="onMouseout">
+                <span class="material-symbols-outlined"> content_copy </span
+                >{{ copied ? "コピーしました" : "リンクをコピー" }}
+            </button>
+        </div>
     </div>
 </template>
 <script setup>
@@ -37,6 +39,16 @@ const onMouseout = () => {
 };
 </script>
 <style scoped>
+.add_container {
+    width: 100%;
+    padding: 20px 0;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 120px;
+}
 .add_title {
     width: 100%;
     padding: 10px 0;

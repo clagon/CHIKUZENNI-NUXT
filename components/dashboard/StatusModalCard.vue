@@ -11,9 +11,9 @@ const props = defineProps({
         default: false,
     },
 });
-const emit = defineEmits(["click"]);
+const emit = defineEmits(["statusChange"]);
 const onClick = () => {
-    emit("click", props.status);
+    emit("statusChange", props.status);
 };
 </script>
 <template>

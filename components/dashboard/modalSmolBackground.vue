@@ -31,7 +31,7 @@ onMounted(() => {
     z-index: 3000;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
     height: 100%;
     position: absolute;

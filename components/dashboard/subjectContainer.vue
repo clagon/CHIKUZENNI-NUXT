@@ -5,13 +5,14 @@
                 v-if="subjectList.length !== 0"
                 v-for="subject in subjectList"
                 :subject="subject"
+                @clickOpenButton="onclickOpenButton"
             />
-            <DashboardSubjectCard
+            <!-- <DashboardSubjectCard
                 v-if="isPending && subjectList.length === 0"
                 :is-pending="true"
                 :subject="{ id: '', name: '' }"
                 v-for="i in 10"
-            />
+            /> -->
             <div class="no-ubject-here" v-if="!isPending && subjectList.length === 0">
                 科目がありません
             </div>
@@ -20,6 +21,9 @@
 </template>
 <script setup>
 // 科目のリスト
+
+const modalStore = useModalStore();
+const subjectStore = useSubjectStore();
 const subjectList = ref([]);
 const isPending = ref(true);
 const { data, pending, error, refresh } = await customApi(
@@ -31,6 +35,19 @@ onMounted(async () => {
     subjectList.value = data.value;
     isPending.value = false;
 });
+const onclickOpenButton = async (mode, subject) => {
+    subjectStore.setPendingRender(true);
+    modalStore.open();
+    console.log(mode, subject);
+    new subjectStore.set(subject.id, mode)
+        .catch(err => {
+            alert(err);
+            subjectStore.setPendingRender(false);
+        })
+        .then(() => {
+            subjectStore.setPendingRender(false);
+        });
+};
 </script>
 <style scoped>
 .subject_conatiner {

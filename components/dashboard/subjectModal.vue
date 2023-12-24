@@ -29,11 +29,11 @@
                     value="settings"
                     v-model="selected"
                 />
-                <label for="tab_settings" tabindex="0" class="tab_label">settings</label>
+                <label for="tab_settings" tabindex="0" class="tab_label">設定</label>
             </div>
         </div>
         <div class="content">
-            <component :is="current_component" />
+            <component :is="currentComponent" />
         </div>
     </div>
 </template>
@@ -54,7 +54,7 @@ watch(
         }
     }
 );
-const current_component = computed(() => {
+const currentComponent = computed(() => {
     if (selected.value == "list") {
         return DashboardSubjectTabList;
     } else if (selected.value == "add") {
@@ -67,8 +67,10 @@ const current_component = computed(() => {
 <style scoped>
 .subject-modal-container {
     position: relative;
-    width: 500px;
-    min-height: 600px;
+    /* width: 500px;
+    min-height: 600px; */
+    /* display: grid;
+    grid-template-rows: 64px 1fr; */
 }
 .tab_wrapper {
     width: 100%;
@@ -113,10 +115,12 @@ const current_component = computed(() => {
     padding-top: 20px;
     background-color: var(--smoke-white);
     border-radius: 10px;
+    display: grid;
+    grid-template-rows: 80px 80px 1fr;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .subject-modal-container {
         width: 100%;
     }
-}
+} */
 </style>

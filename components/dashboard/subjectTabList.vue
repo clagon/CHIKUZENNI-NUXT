@@ -70,6 +70,8 @@ const smolModal = useSmolModalStore();
 const modalState = useModalStore();
 const selectedItems = ref([]);
 const selectedALL = ref(false);
+const scrollContainer = ref(null);
+
 const onCheckedAll = () => {
     if (selectedALL.value) {
         selectedItems.value = [];
@@ -107,7 +109,7 @@ watch(
 <style scoped>
 .tablist_container {
     width: 100%;
-    height: 100%;
+    height: var(--scheight);
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -154,7 +156,7 @@ watch(
 }
 .check_all {
     padding: 20px 0 20px 10px;
-    box-shadow: 0 1.4px 0 0 var(--gray);
+    /* box-shadow: 0 1.4px 0 0 var(--gray); */
     margin-bottom: 2px;
 }
 .listmember-item {
