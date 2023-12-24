@@ -113,7 +113,7 @@ watch(
     transform: translateX(-10px);
 }
 .selected .icon {
-    color: var(--white);
+    color: var(--smoke-white);
 }
 .title {
     display: none;
@@ -126,7 +126,7 @@ watch(
     color: var(--black);
 }
 .selected .title {
-    color: var(--white);
+    color: var(--smoke-white);
 }
 /* responsive */
 @media (max-width: 768px) {

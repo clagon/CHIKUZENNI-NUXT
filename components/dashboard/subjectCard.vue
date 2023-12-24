@@ -49,7 +49,7 @@ const onclickLower = async mode => {
     /* background-color: #f00; */
     border-radius: 8px;
     border: 1px solid var(--gray);
-    color: var(--white);
+    color: var(--smoke-white);
     position: relative;
     display: grid;
     grid-template-columns: 1fr;

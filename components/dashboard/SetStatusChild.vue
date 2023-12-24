@@ -6,7 +6,7 @@
             <DashboardButtonSmol
                 text="変更"
                 icon="edit"
-                color="var(--white)"
+                color="var(--smoke-white)"
                 bg="var(--primary)"
                 @click="onClick(true)"
                 v-if="!isEditable"
@@ -14,7 +14,7 @@
             <DashboardButtonSmol
                 text="保存"
                 icon="save"
-                color="var(--white)"
+                color="var(--smoke-white)"
                 bg="var(--primary)"
                 @click="onSave(false)"
                 v-if="isEditable"
@@ -22,7 +22,7 @@
             <DashboardButtonSmol
                 text="閉じる"
                 icon="close"
-                color="var(--white)"
+                color="var(--smoke-white)"
                 bg="var(--red)"
                 @click="onClose(false)"
                 v-if="isEditable"
@@ -88,7 +88,7 @@ const onClose = () => {
     width: 100%;
 }
 .status_input[disabled] {
-    background-color: var(--white);
+    background-color: var(--smoke-white);
     color: var(--gray);
 }
 .changestatus {

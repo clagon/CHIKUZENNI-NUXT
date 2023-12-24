@@ -36,7 +36,7 @@ const onClickCopy = () => {
     width: 100px;
     height: 100%;
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--smoke-white);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;

@@ -7,7 +7,6 @@
             icon="clinical_notes"
             route="/teacher/dashboard/list"
         />
-        <!-- <DashboardSidebarContent title="追加" icon="group_add" route="/teacher/dashboard/add" /> -->
         <DashboardSidebarContent title="設定" icon="settings" route="/teacher/dashboard/settings" />
     </DashboardSidebar>
     <div class="content" :style="styles" role="main">
@@ -34,37 +33,7 @@ onMounted(() => {
         side.changeSelected(route.path.replace(/\/$/g, ""));
     }
 });
-useSeoMeta({
-    description: "cHiKUzEnNi iS a sImPlE sChOoL mAnAgEmEnT sYsTeM.",
-    ogTitle: "筑前煮",
-    ogDescription: "筑前煮",
-    // ogImage: "[og:image]",
-    // ogUrl: "[og:url]",
-    // twitterTitle: "[twitter:title]",
-    // twitterDescription: "[twitter:description]",
-    // twitterImage: "[twitter:image]",
-    // twitterCard: "summary",
-});
 
-useHead({
-    htmlAttrs: {
-        lang: "ja",
-    },
-    link: [
-        {
-            rel: "icon",
-            type: "image/png",
-            href: "/favicon.png",
-        },
-    ],
-
-    // link: [
-    //     {
-    //         rel: "stylesheet",
-    //         href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap",
-    //     },
-    // ],
-});
 // サイドバーの開閉によってpadding-leftを変更
 const styles = computed(() => {
     return {

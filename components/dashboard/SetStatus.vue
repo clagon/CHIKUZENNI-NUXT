@@ -51,7 +51,7 @@ ul {
     position: absolute;
     width: 100%;
     height: 60px;
-    background-color: var(--white);
+    background-color: var(--smoke-white);
     bottom: 0;
     left: 0;
     border-bottom-left-radius: 8px;

@@ -1,6 +1,5 @@
 <template>
     <DashboardContent title="公開ステータスを変更する">
-        <!-- <PulldownSelect /> -->
         <DashboardCurrentStatus />
     </DashboardContent>
 </template>

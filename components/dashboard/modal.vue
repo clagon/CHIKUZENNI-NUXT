@@ -81,8 +81,7 @@ watch(
     position: relative;
     min-width: 450px;
     min-height: 300px;
-    background-color: var(--white);
-    border-radius: 10px;
+    background-color: var(--smoke-white);
     padding: 35px;
 }
 .close {
@@ -96,7 +95,7 @@ watch(
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: var(--white);
+    background-color: var(--smoke-white);
     filter: brightness(0.95);
     z-index: 101;
 }

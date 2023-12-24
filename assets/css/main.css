@@ -2,7 +2,7 @@
 :root {
     --primary: #256ebb;
     --primary-rgb: 37, 110, 187;
-    --white: #f1f3f5;
+    --smoke-white: #f1f3f5;
     --black: #020117;
     --gray: #acadaf;
     --red: #bb2525;
@@ -12,7 +12,7 @@
     --dashboard-sidebar-closed-width: var(--dashboard-header-height);
     --dashboard-sidebar-opened-width: 250px;
     --dashboard-sidebar-content-height: var(--dashboard-header-height);
-    --dashboard-footer-nav-height: 80px;
+    --dashboard-footer-nav-height: 64px;
 }
 *,
 ::before,
@@ -41,7 +41,7 @@ button {
     padding: 10px 20px;
     border-radius: 9999px;
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--smoke-white);
     font-size: 14px;
     font-weight: 700;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);

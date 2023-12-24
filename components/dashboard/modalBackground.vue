@@ -34,7 +34,7 @@ const props = defineProps({
 .modal_background {
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
+    z-index: 3000;
     display: flex;
     justify-content: center;
     align-items: center;

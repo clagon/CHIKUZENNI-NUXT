@@ -22,7 +22,7 @@
 .left_txt {
     font-size: 48px;
     font-weight: 700;
-    color: var(--white);
+    color: var(--smoke-white);
     margin-bottom: 1rem;
 }
 .saa {
@@ -41,7 +41,7 @@
     .left_txt {
         font-size: 32px;
         font-weight: 700;
-        color: var(--white);
+        color: var(--smoke-white);
         margin-bottom: 1rem;
     }
     .saa {

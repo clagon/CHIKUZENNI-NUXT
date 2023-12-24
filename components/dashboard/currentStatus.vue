@@ -53,7 +53,7 @@ const onClickOpen = () => {
     border-radius: 8px;
     font-weight: 700;
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--smoke-white);
     align-self: center;
     justify-self: center;
 }

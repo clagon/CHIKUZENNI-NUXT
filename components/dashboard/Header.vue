@@ -25,7 +25,8 @@ const props = defineProps({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 9999;
+    z-index: 2000;
+    background-color: #fff;
 }
 .left {
     width: 50%;

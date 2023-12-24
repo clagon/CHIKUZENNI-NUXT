@@ -111,7 +111,7 @@ const current_component = computed(() => {
     width: 100%;
     height: 100%;
     padding-top: 20px;
-    background-color: var(--white);
+    background-color: var(--smoke-white);
     border-radius: 10px;
 }
 @media (max-width: 768px) {

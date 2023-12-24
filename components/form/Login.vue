@@ -45,7 +45,7 @@ const target = props.mode == "teacher" ? "teacher" : "student";
     border-radius: 10px;
     border: none;
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--smoke-white);
     font-size: 16px;
     font-weight: 700;
     box-shadow: 0px 1px 2px rgba(32, 33, 36, 0.5);

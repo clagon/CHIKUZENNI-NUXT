@@ -36,7 +36,7 @@ li.other_card {
     position: relative;
     width: 100%;
     aspect-ratio: 3/1;
-    background-color: var(--white);
+    background-color: var(--smoke-white);
     color: var(--black);
     display: flex;
     justify-content: center;
@@ -54,7 +54,7 @@ li.other_card {
     border-top: 1px solid #e5e7eb;
 }
 .other_card:hover .status_message {
-    color: var(--white);
+    color: var(--smoke-white);
 }
 .status_color {
     --width: 15px;

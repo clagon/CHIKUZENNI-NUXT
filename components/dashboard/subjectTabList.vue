@@ -17,9 +17,9 @@
             class="listmember-item"
             text="削除"
             icon="delete"
-            color="var(--white)"
+            color="var(--smoke-white)"
             bg="var(--red)"
-            colorDisabled="var(--white)"
+            colorDisabled="var(--smoke-white)"
             bgDisabled="var(--gray)"
             :disabled="selectedItems.length ? selectedItems.length == 0 : true"
             @click="onDelete"
@@ -136,7 +136,7 @@ watch(
 }
 .listmember {
     width: 100%;
-    background-color: var(--white);
+    background-color: var(--smoke-white);
     /* border-radius: 10px; */
     border-bottom: 1px solid var(--gray);
     padding: 20px 0 20px 10px;
@@ -214,14 +214,14 @@ watch(
 @supports not selector(::-webkit-scrollbar) {
     .tablist_container {
         scrollbar-width: thin;
-        scrollbar-color: var(--gray) var(--white);
+        scrollbar-color: var(--gray) var(--smoke-white);
     }
 }
 .tablist_container::-webkit-scrollbar {
     width: 6px;
 }
 .tablist_container::-webkit-scrollbar-track {
-    background-color: var(--white);
+    background-color: var(--smoke-white);
 }
 .tablist_container::-webkit-scrollbar-thumb {
     background-color: var(--gray);

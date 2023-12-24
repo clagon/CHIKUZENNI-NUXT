@@ -20,7 +20,7 @@ onMounted(async () => {
     statuses.value = statusFetched.value.statuses;
 });
 
-const onClickStatus = async status => {
+const onstatusChange = async status => {
     const { data, pending, error, refresh } = await customApi(
         "https://chikuzenni-mock-api.vercel.app/teacherStatusChange",
         JSON.stringify(status),
@@ -34,7 +34,7 @@ const onClickStatus = async status => {
 <template>
     <div class="status_contaier">
         <DashboardStatusModalCard
-            @click="onClickStatus(status)"
+            @statusChange="onstatusChange(status)"
             :status="status"
             :is-selected="
                 status.color === statusStore.currentStatus.color &&
@@ -50,7 +50,7 @@ const onClickStatus = async status => {
     position: relative;
     width: 450px;
     min-height: 300px;
-    background-color: var(--white);
+    background-color: var(--smoke-white);
     border-radius: 10px;
     padding: 30px;
 }
@@ -78,7 +78,7 @@ const onClickStatus = async status => {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: var(--white);
+    background-color: var(--smoke-white);
     filter: brightness(0.95);
 }
 .close:hover {
@@ -90,10 +90,15 @@ const onClickStatus = async status => {
     right: 15px;
     padding: 10px 20px;
     height: 40px;
-    color: var(--white);
+    color: var(--smoke-white);
     font-weight: 700;
     background-color: var(--primary);
     border-radius: 8px;
     cursor: pointer;
 } */
+@media (max-width: 768px) {
+    .status_contaier {
+        padding-left: 0px;
+    }
+}
 </style>
