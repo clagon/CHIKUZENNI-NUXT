@@ -6,5 +6,23 @@ useHead({
     titleTemplate: title => {
         return title ? `筑前煮 | ${title}` : "筑前煮";
     },
+    link: [
+        {
+            rel: "icon",
+            type: "image/png",
+            href: "/favicon.ico",
+        },
+    ],
+    htmlAttrs: {
+        lang: "ja",
+    },
+});
+useSeoMeta({
+    title: "筑前煮",
+    description: "筑前煮は、学習の記録を共有できるサービスです。",
+    url: "https://chikuzenni-nuxt.vercel.app",
+    ogImage: "http://chikuzenni-nuxt.vercel.app/ogp.png",
+    ogDescription: "筑前煮は、学習の記録を共有できるサービスです。",
+    twitterCard: "summary_large_image",
 });
 </script>
