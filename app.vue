@@ -26,6 +26,7 @@ useSeoMeta({
     ogSiteName: "筑前煮",
     ogTitle: "筑前煮",
     twitterCard: "summary_large_image",
-    goType: "website",
+    ogType: "website",
+    ogUrl: "https://chikuzenni-nuxt.vercel.app",
 });
 </script>
