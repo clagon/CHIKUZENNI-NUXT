@@ -23,6 +23,8 @@ useSeoMeta({
     url: "https://chikuzenni-nuxt.vercel.app",
     ogImage: "http://chikuzenni-nuxt.vercel.app/ogp.png",
     ogDescription: "筑前煮は、学習の記録を共有できるサービスです。",
+    ogSiteName: "筑前煮",
+    ogTitle: "筑前煮",
     twitterCard: "summary_large_image",
 });
 </script>
