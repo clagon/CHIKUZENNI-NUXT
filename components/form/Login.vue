@@ -2,8 +2,13 @@
     <section class="container">
         <h1 class="title">Login</h1>
         <form class="form" @submit.prevent="login">
-            <FormInput label="ID" />
-            <FormInput label="パスワード" type="password" />
+            <FormInput label="メールアドレス" id="email" autocomplete="email" />
+            <FormInput
+                label="パスワード"
+                id="password"
+                type="password"
+                autocomplete="current-password"
+            />
             <button class="submit" type="submit">ログイン</button>
         </form>
         <NuxtLink class="signup" :to="'/' + target + '/signup'">新規登録はこちら</NuxtLink>

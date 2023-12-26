@@ -2,12 +2,22 @@
     <section class="container">
         <h1 class="title">Signup</h1>
         <form class="form" @submit.prevent="login">
-            <FormInput label="ID" />
-            <FormInput label="名前" />
-            <FormInput label="メールアドレス" />
-            <FormInput label="機器ID" v-if="target == 'teacher'" />
-            <FormInput label="パスワード" type="password" />
-            <FormInput label="パスワード確認" type="password" />
+            <!-- <FormInput label="ID" /> -->
+            <FormInput label="名前" id="name" autocomplete="name" />
+            <FormInput label="メールアドレス" id="email" autocomplete="email" />
+            <FormInput label="機器ID" id="macid" v-if="target == 'teacher'" />
+            <FormInput
+                label="パスワード"
+                id="password"
+                type="password"
+                autocomplete="new-password"
+            />
+            <FormInput
+                label="パスワード確認"
+                id="password_val"
+                type="password"
+                autocomplete="new-password"
+            />
             <button class="submit" type="submit">登録</button>
         </form>
         <NuxtLink class="signup" :to="'/' + target + '/login'">ログインはこちら</NuxtLink>

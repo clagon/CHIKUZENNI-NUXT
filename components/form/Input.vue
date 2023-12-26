@@ -1,13 +1,14 @@
 <template>
     <div class="input_wrapper">
-        <label for="input">{{ label }}<span class="required" v-if="isRequired">*</span></label>
+        <label :for="id">{{ label }}<span class="required" v-if="isRequired">*</span></label>
         <input
             @change="onChange(inputValue)"
-            id="input"
+            :id="id"
             class="form_input"
             :type="isVisible ? 'text' : type"
             v-model="inputValue"
             :placeholder="placeholder ? placeholder : label"
+            :autocomplete="autocomplete"
         />
         <div
             class="show"
@@ -26,6 +27,14 @@
 <script setup>
 const props = defineProps({
     label: {
+        type: String,
+        required: true,
+    },
+    id: {
+        type: String,
+        required: true,
+    },
+    autocomplete: {
         type: String,
         required: true,
     },
