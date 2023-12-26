@@ -74,9 +74,8 @@ const currentComponent = computed(() => {
 }
 .tab_wrapper {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     list-style: none;
     padding: 0;
     padding-top: 20px;
@@ -91,7 +90,8 @@ const currentComponent = computed(() => {
     width: 100%;
     display: block;
     text-align: center;
-    padding: 10px 50px 5px;
+    /* padding: 10px 50px 5px; */
+    padding: 10px 0 5px;
     border-bottom: 1px solid var(--gray);
     cursor: pointer;
     font-size: 20px;
