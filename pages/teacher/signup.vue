@@ -1,7 +1,7 @@
 <template>
     <HomeHeader />
     <div class="signup">
-        <FormSignup mode="teacher" />
+        <FormSignupTeacher mode="teacher" />
     </div>
 </template>
 <style scoped>

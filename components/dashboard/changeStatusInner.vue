@@ -1,10 +1,10 @@
 <script setup>
-const modal = useModalStore();
+const modalStore = useModalStore();
 const statusStore = useStatusStore();
-const scroll = useScrollableStore();
+const scrollableStore = useScrollableStore();
 const onClickOpen = () => {
-    modal.open();
-    scroll.set(false);
+    modalStore.open();
+    scrollableStore.set(false);
 };
 </script>
 <template>
@@ -49,6 +49,8 @@ const onClickOpen = () => {
     align-self: center;
     justify-self: self-start;
     padding-left: 20px;
+    text-wrap: nowrap;
+    white-space: nowrap;
 }
 .status_button {
     grid-area: status_button;

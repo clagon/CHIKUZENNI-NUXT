@@ -1,7 +1,7 @@
 <template>
     <HomeHeader />
     <div class="login">
-        <FormLogin mode="student" />
+        <FormLoginStudent mode="student" />
     </div>
 </template>
 <style scoped>

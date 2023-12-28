@@ -1,36 +1,35 @@
 <template>
     <section class="container">
         <h1 class="title">Signup</h1>
-        <form class="form" @submit.prevent="login">
+        <form class="form" @submit.prevent="onSubmit">
             <!-- <FormInput label="ID" /> -->
-            <FormInput label="名前" id="name" autocomplete="name" />
-            <FormInput label="メールアドレス" id="email" autocomplete="email" />
-            <FormInput label="機器ID" id="macid" v-if="target == 'teacher'" />
+            <FormInput label="名前" id="name" autocomplete="name" v-model="name" />
+            <FormInput label="メールアドレス" id="email" autocomplete="email" v-model="email" />
             <FormInput
                 label="パスワード"
                 id="password"
                 type="password"
                 autocomplete="new-password"
+                v-model="password"
             />
             <FormInput
                 label="パスワード確認"
                 id="password_val"
                 type="password"
                 autocomplete="new-password"
+                v-model="password_val"
             />
             <button class="submit" type="submit">登録</button>
         </form>
-        <NuxtLink class="signup" :to="'/' + target + '/login'">ログインはこちら</NuxtLink>
+        <NuxtLink class="signup" to="/student/login">ログインはこちら</NuxtLink>
     </section>
 </template>
 <script setup>
-const props = defineProps({
-    mode: {
-        type: String,
-        default: "student",
-    },
-});
-const target = props.mode == "teacher" ? "teacher" : "student";
+const name = ref("");
+const email = ref("");
+const password = ref("");
+const password_val = ref("");
+const onSubmit = () => {};
 </script>
 <style scoped>
 .container {

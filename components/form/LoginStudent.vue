@@ -1,27 +1,24 @@
 <template>
     <section class="container">
         <h1 class="title">Login</h1>
-        <form class="form" @submit.prevent="login">
-            <FormInput label="メールアドレス" id="email" autocomplete="email" />
+        <form class="form" @submit.prevent="onSubmit">
+            <FormInput label="メールアドレス" id="email" autocomplete="email" v-model="email" />
             <FormInput
                 label="パスワード"
                 id="password"
                 type="password"
                 autocomplete="current-password"
+                v-model="password"
             />
             <button class="submit" type="submit">ログイン</button>
         </form>
-        <NuxtLink class="signup" :to="'/' + target + '/signup'">新規登録はこちら</NuxtLink>
+        <NuxtLink class="signup" to="/student/signup">新規登録はこちら</NuxtLink>
     </section>
 </template>
 <script setup>
-const props = defineProps({
-    mode: {
-        type: String,
-        default: "student",
-    },
-});
-const target = props.mode == "teacher" ? "teacher" : "student";
+const email = ref("");
+const password = ref("");
+const onSubmit = () => {};
 </script>
 <style scoped>
 .container {
