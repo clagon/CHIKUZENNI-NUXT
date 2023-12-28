@@ -1,21 +1,21 @@
+<template>
+    <div ref="modal" class="change_modal" role="dialog" :aria-modal="modalStore.isOpen">
+        <component :is="modalStore.component"></component>
+    </div>
+</template>
 <script setup>
 import { useFocusTrap } from "@vueuse/integrations/useFocusTrap";
 
-// const props = defineProps({
-//     component: {
-//         type: Object,
-//         required: true,
-//     },
-// });
-const close = ref(null);
-const modal = ref(null);
 const modalStore = useModalStore();
-const scroll = useScrollableStore();
+const scrollableStore = useScrollableStore();
 const SmolModalStore = useSmolModalStore();
 const deleteStore = useDeleteStore();
+
+const modal = ref(null);
+
 const onClickClose = () => {
     modalStore.close();
-    scroll.set(true);
+    scrollableStore.set(true);
 };
 const { hasFocus, activate, deactivate } = useFocusTrap(modal, {
     allowOutsideClick: true,
@@ -36,39 +36,18 @@ onMounted(async () => {
         }
     });
     await nextTick();
-    close.value.focus();
 });
 close.value?.addEventListener("keydown", e => {
     console.log(e.shiftKey);
     if (e.key === "Tab" && e.shiftKey && modalStore.isOpen) {
         e.preventDefault();
-        close.value.focus();
     }
 });
-// const modalStyle = computed(() => {
-//     if (modal.value) {
-//         return {
-//             "--scheight": `calc(${modal.value.clientHeight} - 240px)`,
-//         };
-//     }
-// });
-const modalStyle = ref(null);
-// modal.value?.addEventListener("resize", () => {
-//     modalStyle.value = {
-//         "--scheight": `calc(${modal.value.clientHeight}px - 240px)`,
-//     };
-// });
 watch(
     () => modalStore.isOpen,
     value => {
         if (value) {
-            close.value.focus();
             activate();
-            nextTick().then(() => {
-                modalStyle.value = {
-                    "--scheight": `calc(${modal.value.clientHeight}px - 300px)`,
-                };
-            });
         } else {
             deactivate();
             deleteStore.clear();
@@ -78,41 +57,23 @@ watch(
 // watch(
 //     () => modalStore.component,
 //     value => {
-//         nextTick().then(() => {
-//             modalStyle.value = {
-//                 "--scheight": `calc(${modal.value.clientHeight}px - 300px)`,
-//             };
-//         });
+//         if (modalStore.isOpen) {
+//             deactivate();
+//             activate();
+//         } else {
+//             deactivate();
+//         }
 //     }
 // );
 </script>
-<template>
-    <div
-        ref="modal"
-        class="change_modal"
-        :style="modalStyle"
-        role="dialog"
-        :aria-modal="modalStore.isOpen"
-    >
-        <div ref="close" class="close" @click="onClickClose" aria-label="閉じる" tabindex="0">
-            <span class="material-symbols-outlined"> close </span>
-        </div>
-        <component :is="modalStore.component"></component>
-    </div>
-</template>
 <style scoped>
 .change_modal {
-    /* --scheight: calc(100% - 240px); */
     position: relative;
     min-width: 450px;
     min-height: 300px;
-    width: 100%;
-    height: 100%;
-    /* max-height: max(90%, 800px); */
+    max-height: max(90%, 800px);
     background-color: var(--white);
-
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 10px;
     padding: 35px;
 }
 .close {
@@ -136,10 +97,9 @@ watch(
 /* @media (max-width: 768px) { */
 @media (max-width: 1024px) {
     .change_modal {
+        width: 90%;
+        /* height: 700px; */
         min-width: auto;
-        min-height: auto;
-        width: 100%;
-        height: 80%;
     }
 }
 </style>

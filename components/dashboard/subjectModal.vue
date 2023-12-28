@@ -113,15 +113,15 @@ const currentComponent = computed(() => {
     width: 100%;
     height: 100%;
     padding-top: 20px;
-    background-color: var(--smoke-white);
+    /* background-color: var(--smoke-white); */
     border-radius: 10px;
     display: grid;
     grid-template-rows: 80px 80px 1fr;
 }
-/* /* @media (max-width: 768px) { */
+/* @media (max-width: 768px) { */
 @media (max-width: 1024px) {
     .subject-modal-container {
         width: 100%;
     }
-} */
+}
 </style>

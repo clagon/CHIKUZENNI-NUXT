@@ -1,10 +1,12 @@
 <template>
     <div class="modal_background" :style="style" ref="background">
-        <!-- <NuxtIsland :name="newComponent"></NuxtIsland> -->
-        <slot />
+        <DashboardModalSmol v-if="modalStore.mode == 'smol'" />
+        <DashboardModal v-if="modalStore.mode == 'normal'" />
+        <DashboardModalAlert v-if="modalStore.mode == 'alert'" />
     </div>
 </template>
 <script setup>
+import { computed, onMounted, ref } from "vue";
 const modalStore = useModalStore();
 const scrollableStore = useScrollableStore();
 const style = computed(() => {

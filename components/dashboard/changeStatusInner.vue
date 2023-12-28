@@ -1,4 +1,7 @@
 <script setup>
+import { DashboardChangeStatusModal } from "#components";
+import { markRaw } from "vue";
+const NonReactiveComponent = markRaw(DashboardChangeStatusModal);
 const modalStore = useModalStore();
 const statusStore = useStatusStore();
 const scrollableStore = useScrollableStore();
@@ -6,6 +9,18 @@ const onClickOpen = () => {
     modalStore.open();
     scrollableStore.set(false);
 };
+const {
+    data: statusFetched,
+    pending,
+    error,
+    refresh,
+} = await customApi("https://chikuzenni-mock-api.vercel.app/teacherStatus");
+onMounted(async () => {
+    await refresh();
+    if (error.value) alert(error.value);
+    statusStore.set(statusFetched.value.currentStatus);
+    modalStore.setComponent(NonReactiveComponent, "smol");
+});
 </script>
 <template>
     <div class="currentStatus">
@@ -15,8 +30,8 @@ const onClickOpen = () => {
         ></div>
         <div class="status_text">{{ statusStore.currentStatus.status }}</div>
         <button class="status_button" @click="onClickOpen">変更する</button>
-        <button class="status_open">
-            <span class="material-symbols-outlined" @click="onClickOpen"> expand_more </span>
+        <button class="status_open" @click="onClickOpen">
+            <span class="material-symbols-outlined"> expand_more </span>
         </button>
     </div>
 </template>
@@ -69,6 +84,10 @@ const onClickOpen = () => {
     display: none;
     justify-self: self-end;
     margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    aspect-ratio: 1;
 }
 .status_open:hover {
     filter: brightness(0.9);
@@ -80,7 +99,8 @@ const onClickOpen = () => {
     display: block;
     font-size: 30px;
     border-radius: 9999px;
-    width: 30px;
+    /* width: 30px; */
+    width: 100%;
     transform: translateY(3px);
 }
 .status_open > span:hover {
@@ -95,7 +115,7 @@ const onClickOpen = () => {
         display: none;
     }
     .status_open {
-        display: block;
+        display: flex;
     }
 }
 </style>

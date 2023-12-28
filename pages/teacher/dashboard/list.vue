@@ -1,12 +1,15 @@
 <script setup>
-import { DashboardDeleteMemberSmolModal, DashboardSubjectModal } from "#components";
+import {
+    // DashboardDeleteMemberSmolModal,
+    DashboardSubjectModal,
+} from "#components";
 </script>
 <template>
     <DashboardSubjectContainer />
-    <DashboardModalSmolBackground>
+    <DashboardModalBackground>
         <DashboardModal :component="DashboardSubjectModal" />
-    </DashboardModalSmolBackground>
-    <DashboardSmolModal :component="DashboardDeleteMemberSmolModal"></DashboardSmolModal>
+    </DashboardModalBackground>
+    <!-- <DashboardSmolModal :component="DashboardDeleteMemberSmolModal"></DashboardSmolModal> -->
 </template>
 <!-- 科目作成 -->
 <!-- 科目削除 -->

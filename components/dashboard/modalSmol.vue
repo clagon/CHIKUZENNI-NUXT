@@ -1,22 +1,15 @@
 <template>
-    <div ref="modal" class="change_modal" role="dialog" :aria-modal="modalState.isOpen">
+    <div ref="modal" class="change_modal" role="dialog" :aria-modal="modalStore.isOpen">
         <div ref="close" class="close" @click="onClickClose" aria-label="閉じる" tabindex="0">
             <span class="material-symbols-outlined"> close </span>
         </div>
-        <component :is="component"></component>
+        <component :is="modalStore.component"></component>
     </div>
 </template>
 <script setup>
 import { useFocusTrap } from "@vueuse/integrations/useFocusTrap";
 
-const props = defineProps({
-    component: {
-        type: Object,
-        required: true,
-    },
-});
-
-const modalState = useModalStore();
+const modalStore = useModalStore();
 const scrollableStore = useScrollableStore();
 const SmolModalStore = useSmolModalStore();
 const deleteStore = useDeleteStore();
@@ -25,7 +18,7 @@ const close = ref(null);
 const modal = ref(null);
 
 const onClickClose = () => {
-    modalState.close();
+    modalStore.close();
     scrollableStore.set(true);
 };
 const { hasFocus, activate, deactivate } = useFocusTrap(modal, {
@@ -35,7 +28,7 @@ const { hasFocus, activate, deactivate } = useFocusTrap(modal, {
 });
 onMounted(async () => {
     document.addEventListener("keydown", e => {
-        if (e.key === "Escape" && modalState.isOpen) {
+        if (e.key === "Escape" && modalStore.isOpen) {
             onClickClose();
             deactivate();
         }
@@ -47,19 +40,19 @@ onMounted(async () => {
         }
     });
     await nextTick();
-    if (modalState.isOpen) {
+    if (modalStore.isOpen) {
         close.value.focus();
     }
 });
 close.value?.addEventListener("keydown", e => {
     console.log(e.shiftKey);
-    if (e.key === "Tab" && e.shiftKey && modalState.isOpen) {
+    if (e.key === "Tab" && e.shiftKey && modalStore.isOpen) {
         e.preventDefault();
         close.value.focus();
     }
 });
 watch(
-    () => modalState.isOpen,
+    () => modalStore.isOpen,
     value => {
         if (value) {
             close.value.focus();
@@ -113,7 +106,7 @@ watch(
 @media (max-width: 1024px) {
     .change_modal {
         width: 90%;
-        height: 700px;
+        /* height: 700px; */
         min-width: auto;
     }
 }

@@ -1,5 +1,13 @@
 <template>
     <DashboardContent title="科目一覧">
+        <div class="add_button">
+            <DashboardButtonSmol
+                text="科目を追加"
+                @click="onClickAdd"
+                bg="var(--primary)"
+                color="var(--smoke-white)"
+            />
+        </div>
         <div class="subject_conatiner">
             <DashboardSubjectCard
                 v-if="subjectList.length !== 0"
@@ -20,7 +28,7 @@
     </DashboardContent>
 </template>
 <script setup>
-// 科目のリスト
+import { DashboardSubjectAddModal, DashboardSubjectModal } from "#components";
 
 const modalStore = useModalStore();
 const subjectStore = useSubjectStore();
@@ -34,9 +42,11 @@ onMounted(async () => {
     if (error.value) alert(error.value);
     subjectList.value = data.value;
     isPending.value = false;
+    modalStore.setComponent(DashboardSubjectModal, "normal");
 });
 const onclickOpenButton = async (mode, subject) => {
     subjectStore.setPendingRender(true);
+    modalStore.setComponent(DashboardSubjectModal, "normal");
     modalStore.open();
     console.log(mode, subject);
     new subjectStore.set(subject.id, mode)
@@ -48,6 +58,12 @@ const onclickOpenButton = async (mode, subject) => {
             subjectStore.setPendingRender(false);
         });
 };
+const onClickAdd = () => {
+    subjectStore.setPendingRender(true);
+    modalStore.setComponent(DashboardSubjectAddModal, "smol");
+    modalStore.open();
+    subjectStore.setPendingRender(false);
+};
 </script>
 <style scoped>
 .subject_conatiner {
@@ -56,6 +72,9 @@ const onclickOpenButton = async (mode, subject) => {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
+}
+.add_button {
+    margin: 20px 0;
 }
 .no-ubject-here {
     width: 100%;

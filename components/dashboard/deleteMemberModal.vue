@@ -31,7 +31,7 @@
     </div>
 </template>
 <script setup>
-const smolModal = useSmolModalStore();
+const modalStore = useModalStore();
 const deleteStore = useDeleteStore();
 const deleteelm = ref(null);
 const cancelelm = ref(null);
@@ -40,10 +40,10 @@ onMounted(async () => {
     deleteelm.value.focus();
 });
 const onclickCancel = () => {
-    smolModal.close();
+    closeAlert();
 };
 const onclickContinue = () => {
-    smolModal.close();
+    closeAlert();
 };
 const onSetRefDelete = target => {
     deleteelm.value = target;
@@ -57,8 +57,12 @@ const focusDelete = () => {
 const focusCancel = () => {
     cancelelm.value.focus();
 };
+const closeAlert = () => {
+    modalStore.setComponent(deleteStore.previousComponent, "normal");
+    // modalStore.close();
+};
 watch(
-    () => smolModal.isOpen,
+    () => modalStore.isOpen,
     value => {
         if (value) {
             deleteelm.value.focus();
@@ -69,7 +73,7 @@ watch(
 <style scoped>
 .delete_modal {
     width: 100%;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 8px;
     display: flex;
     flex-direction: column;

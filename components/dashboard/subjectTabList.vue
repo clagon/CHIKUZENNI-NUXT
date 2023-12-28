@@ -62,8 +62,7 @@
     </div>
 </template>
 <script setup>
-import { DashboardDeleteMemberSmolModal } from "#components";
-
+import { DashboardDeleteMemberModal } from "#components";
 const subjectState = useSubjectStore();
 const deleteStore = useDeleteStore();
 const smolModal = useSmolModalStore();
@@ -93,8 +92,9 @@ watch(
 );
 const onDelete = () => {
     deleteStore.set(selectedItems.value);
+    deleteStore.setPreviousComponent(modalState.component);
+    modalState.setComponent(DashboardDeleteMemberModal, "alert");
     smolModal.open();
-    smolModal.modal = DashboardDeleteMemberSmolModal;
 };
 watch(
     () => modalState.isOpen,
@@ -109,7 +109,7 @@ watch(
 <style scoped>
 .tablist_container {
     width: 100%;
-    height: var(--scheight);
+    height: var(--scheight, 400px);
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -138,7 +138,7 @@ watch(
 }
 .listmember {
     width: 100%;
-    background-color: var(--smoke-white);
+    /* background-color: var(--smoke-white); */
     /* border-radius: 10px; */
     border-bottom: 1px solid var(--gray);
     padding: 20px 0 20px 10px;

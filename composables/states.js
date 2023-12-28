@@ -3,6 +3,8 @@ import { ref } from "vue";
 
 export const useModalStore = defineStore("modal", () => {
     const isOpen = ref(false);
+    const component = ref(null);
+    const mode = ref("normal");
     function change() {
         isOpen.value = !isOpen.value;
     }
@@ -12,12 +14,22 @@ export const useModalStore = defineStore("modal", () => {
     function close() {
         isOpen.value = false;
     }
+    function setComponent(value, componentMode) {
+        component.value = value;
+        if (componentMode) {
+            mode.value = componentMode;
+        }
+    }
 
-    return { isOpen, change, open, close };
+    return { isOpen, change, open, close, component, setComponent, mode };
 });
 
 export const useDeleteStore = defineStore("delete", () => {
     const members = ref([]);
+    const previousComponent = ref(null);
+    function setPreviousComponent(value) {
+        previousComponent.value = value;
+    }
     function set(value) {
         members.value = value;
     }
@@ -25,7 +37,7 @@ export const useDeleteStore = defineStore("delete", () => {
         members.value = [];
     }
 
-    return { members, set, clear };
+    return { members, set, clear, previousComponent, setPreviousComponent };
 });
 
 export const useSmolModalStore = defineStore("smolModal", () => {
