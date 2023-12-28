@@ -93,6 +93,7 @@ watch(
 const onDelete = () => {
     deleteStore.set(selectedItems.value);
     deleteStore.setPreviousComponent(modalState.component);
+    modalState.alignBottom = false;
     modalState.setComponent(DashboardDeleteMemberModal, "alert");
     smolModal.open();
 };

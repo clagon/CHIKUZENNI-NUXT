@@ -1,5 +1,10 @@
 <template>
-    <div class="modal_background" :style="style" ref="background">
+    <div
+        class="modal_background"
+        :style="style"
+        :class="{ bottom: modalStore.alignBottom }"
+        ref="background"
+    >
         <DashboardModalSmol v-if="modalStore.mode == 'smol'" />
         <DashboardModal v-if="modalStore.mode == 'normal'" />
         <DashboardModalAlert v-if="modalStore.mode == 'alert'" />
@@ -40,5 +45,10 @@ onMounted(() => {
     top: 0;
     left: 0;
     backdrop-filter: blur(1px);
+}
+@media (max-width: 1024px) {
+    .modal_background.bottom {
+        align-items: flex-end;
+    }
 }
 </style>

@@ -53,11 +53,12 @@ close.value?.addEventListener("keydown", e => {
 //     }
 // });
 const modalStyle = ref(null);
-// modal.value?.addEventListener("resize", () => {
-//     modalStyle.value = {
-//         "--scheight": `calc(${modal.value.clientHeight}px - 240px)`,
-//     };
-// });
+modal.value?.addEventListener("resize", () => {
+    console.log("resize");
+    modalStyle.value = {
+        "--scheight": `calc(${modal.value.clientHeight}px - 300px)`,
+    };
+});
 watch(
     () => modalStore.isOpen,
     value => {
@@ -106,13 +107,14 @@ watch(
     position: relative;
     min-width: 450px;
     min-height: 300px;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     /* max-height: max(90%, 800px); */
     background-color: var(--white);
-
+    /*
     border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-top-left-radius: 10px; */
+    border-radius: 10px;
     padding: 35px;
 }
 .close {

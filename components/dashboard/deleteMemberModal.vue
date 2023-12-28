@@ -59,6 +59,7 @@ const focusCancel = () => {
 };
 const closeAlert = () => {
     modalStore.setComponent(deleteStore.previousComponent, "normal");
+    modalStore.alignBottom = true;
     // modalStore.close();
 };
 watch(

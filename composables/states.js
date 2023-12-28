@@ -5,6 +5,7 @@ export const useModalStore = defineStore("modal", () => {
     const isOpen = ref(false);
     const component = ref(null);
     const mode = ref("normal");
+    const alignBottom = ref(true);
     function change() {
         isOpen.value = !isOpen.value;
     }
@@ -20,8 +21,21 @@ export const useModalStore = defineStore("modal", () => {
             mode.value = componentMode;
         }
     }
+    function setAlignBottom(value) {
+        alignBottom.value = value;
+    }
 
-    return { isOpen, change, open, close, component, setComponent, mode };
+    return {
+        isOpen,
+        change,
+        open,
+        close,
+        component,
+        setComponent,
+        mode,
+        alignBottom,
+        setAlignBottom,
+    };
 });
 
 export const useDeleteStore = defineStore("delete", () => {
