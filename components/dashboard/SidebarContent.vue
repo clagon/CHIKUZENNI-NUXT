@@ -1,7 +1,10 @@
 <template>
-    <div class="sidebar-content" :class="{ open: open.isOpen, selected: side.selected == route }">
+    <div
+        class="sidebar-content"
+        :class="{ open: openStore.isOpen, selected: sideStore.selected == route }"
+    >
         <NuxtLink :to="route" class="inner">
-            <div class="icon" :class="{ open: open.isOpen }">
+            <div class="icon" :class="{ open: openStore.isOpen }">
                 <span class="material-symbols-outlined"> {{ icon }} </span>
             </div>
             <p class="title">{{ title }}</p>
@@ -10,8 +13,8 @@
 </template>
 
 <script setup>
-const open = useOpenStore();
-const side = useSideStore();
+const openStore = useOpenStore();
+const sideStore = useSideStore();
 const currentRoute = useRoute();
 
 const props = defineProps({
@@ -42,11 +45,11 @@ watch(
     () => currentRoute.query,
     (newRoute, oldRoute) => {
         const path = currentRoute.path.replace(/\/$/g, "");
-        if (side.selected == "") {
-            side.changeSelected(path);
+        if (sideStore.selected == "") {
+            sideStore.changeSelected(path);
         }
         if (props.route == path) {
-            side.changeSelected(path);
+            sideStore.changeSelected(path);
         }
     }
 );

@@ -16,7 +16,7 @@
             />
         </ul>
         <div class="save">
-            <button class="save_button">保存</button>
+            <button class="save_button" @click="onSave">保存</button>
         </div>
     </DashboardContent>
 </template>
@@ -27,6 +27,19 @@ const { data, error, pending, refresh } = await useFetch(
 );
 if (error.value) console.log(error.value);
 else values.value = data.value;
+
+const onSave = () => {
+    console.log(values.value);
+    fetch("https://chikuzenni-mock-api.vercel.app/teacherStatusesName", {
+        method: "POST",
+        body: JSON.stringify(values.value),
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            refresh();
+        });
+};
 </script>
 <style scoped>
 ul {

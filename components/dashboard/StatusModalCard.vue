@@ -1,5 +1,4 @@
 <script setup>
-const statusStore = useStatusStore();
 const props = defineProps({
     status: {
         type: Object,

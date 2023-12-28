@@ -2,11 +2,11 @@
     <div class="input_wrapper">
         <label :for="id">{{ label }}<span class="required" v-if="isRequired">*</span></label>
         <input
-            @change="onChange(inputValue)"
+            @input="onInput"
             :id="id"
             class="form_input"
             :type="isVisible ? 'text' : type"
-            v-model="inputValue"
+            :value="modelValue"
             :placeholder="placeholder ? placeholder : label"
             :autocomplete="autocomplete"
         />
@@ -26,6 +26,10 @@
 
 <script setup>
 const props = defineProps({
+    modelValue: {
+        type: String,
+        default: "",
+    },
     label: {
         type: String,
         required: true,
@@ -52,13 +56,12 @@ const props = defineProps({
     },
 });
 const emits = defineEmits();
-const onChange = value => {
-    emits("change", value);
+const onInput = event => {
+    emits("update:modelValue", event.target.value);
 };
 const togglePassVisibility = () => {
     isVisible.value = !isVisible.value;
 };
-const inputValue = ref("");
 const isVisible = ref(false);
 useHead({
     link: [

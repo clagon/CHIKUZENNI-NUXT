@@ -1,9 +1,15 @@
+<template>
+    <div class="modal_background" :style="style" ref="background">
+        <!-- <NuxtIsland :name="newComponent"></NuxtIsland> -->
+        <slot />
+    </div>
+</template>
 <script setup>
-const modal = useModalStore();
-const scroll = useScrollableStore();
+const modalStore = useModalStore();
+const scrollableStore = useScrollableStore();
 const style = computed(() => {
     return {
-        display: modal.isOpen ? "flex" : "none",
+        display: modalStore.isOpen ? "flex" : "none",
     };
 });
 
@@ -11,19 +17,13 @@ const style = computed(() => {
 const background = ref(null);
 onMounted(() => {
     background.value.addEventListener("click", e => {
-        if (e.target == background.value && !modal.isOpen.value) {
-            modal.close();
-            scroll.set(true);
+        if (e.target == background.value && !modalStore.isOpen.value) {
+            modalStore.close();
+            scrollableStore.set(true);
         }
     });
 });
 </script>
-<template>
-    <div class="modal_background" :style="style" ref="background">
-        <!-- <NuxtIsland :name="newComponent"></NuxtIsland> -->
-        <slot />
-    </div>
-</template>
 <style scoped>
 .modal_background {
     overflow: hidden;

@@ -7,12 +7,12 @@
                 :subject="subject"
                 @clickOpenButton="onclickOpenButton"
             />
-            <!-- <DashboardSubjectCard
+            <DashboardSubjectCard
                 v-if="isPending && subjectList.length === 0"
                 :is-pending="true"
                 :subject="{ id: '', name: '' }"
                 v-for="i in 10"
-            /> -->
+            />
             <div class="no-ubject-here" v-if="!isPending && subjectList.length === 0">
                 科目がありません
             </div>

@@ -1,11 +1,19 @@
+<template>
+    <div class="status_contaier">
+        <DashboardStatusModalCard
+            @statusChange="onstatusChange(status)"
+            :status="status"
+            :is-selected="
+                status.color === statusStore.currentStatus.color &&
+                status.status === statusStore.currentStatus.status
+            "
+            v-for="(status, i) in statuses"
+            :key="i"
+        />
+    </div>
+</template>
 <script setup>
-const modal = useModalStore();
 const statusStore = useStatusStore();
-const scroll = useScrollableStore();
-const onClickClose = () => {
-    modal.close();
-    scroll.set(true);
-};
 const statuses = ref([]);
 const {
     data: statusFetched,
@@ -27,24 +35,10 @@ const onstatusChange = async status => {
         "POST"
     );
     if (error.value) alert("エラーが発生しました\n時間をおいて再度お試しください\n" + error.value);
-    console.log(data.value);
-    statusStore.set(data.value);
+    console.log(status);
+    statusStore.set(status);
 };
 </script>
-<template>
-    <div class="status_contaier">
-        <DashboardStatusModalCard
-            @statusChange="onstatusChange(status)"
-            :status="status"
-            :is-selected="
-                status.color === statusStore.currentStatus.color &&
-                status.status === statusStore.currentStatus.status
-            "
-            v-for="(status, i) in statuses"
-            :key="i"
-        />
-    </div>
-</template>
 <style scoped>
 .change_modal {
     position: relative;

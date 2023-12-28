@@ -1,6 +1,6 @@
 <template>
-    <DashboardContent title="公開ステータスを変更する">
-        <DashboardCurrentStatus />
+    <DashboardContent title="公開ステータスを変更">
+        <DashboardChangeStatusInner />
     </DashboardContent>
 </template>
 <style scoped>

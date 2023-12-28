@@ -17,10 +17,10 @@
 </template>
 
 <script setup>
-const open = useOpenStore();
-const side = useSideStore();
+const openStore = useOpenStore();
+const sideStore = useSideStore();
+const scrollableStore = useScrollableStore();
 const route = useRoute();
-const scroll = useScrollableStore();
 
 // titleタグ/Headタグの設定
 const makeTitle = () => {
@@ -30,17 +30,17 @@ const makeTitle = () => {
 };
 onMounted(() => {
     if (route.path.startsWith("/teacher/dashboard")) {
-        side.changeSelected(route.path.replace(/\/$/g, ""));
+        sideStore.changeSelected(route.path.replace(/\/$/g, ""));
     }
 });
 
 // サイドバーの開閉によってpadding-leftを変更
 const styles = computed(() => {
     return {
-        "padding-left": open.isOpen
+        "padding-left": openStore.isOpen
             ? "var(--dashboard-sidebar-opened-width)"
             : "var(--dashboard-header-height)",
-        overflow: scroll.isScrollable ? "auto" : "hidden",
+        overflow: scrollableStore.isScrollable ? "auto" : "hidden",
     };
 });
 </script>

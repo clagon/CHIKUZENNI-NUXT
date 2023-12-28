@@ -1,3 +1,11 @@
+<template>
+    <div ref="modal" class="change_modal" role="dialog" :aria-modal="modalState.isOpen">
+        <div ref="close" class="close" @click="onClickClose" aria-label="閉じる" tabindex="0">
+            <span class="material-symbols-outlined"> close </span>
+        </div>
+        <component :is="component"></component>
+    </div>
+</template>
 <script setup>
 import { useFocusTrap } from "@vueuse/integrations/useFocusTrap";
 
@@ -7,15 +15,18 @@ const props = defineProps({
         required: true,
     },
 });
-const close = ref(null);
-const modal = ref(null);
+
 const modalState = useModalStore();
-const scroll = useScrollableStore();
+const scrollableStore = useScrollableStore();
 const SmolModalStore = useSmolModalStore();
 const deleteStore = useDeleteStore();
+
+const close = ref(null);
+const modal = ref(null);
+
 const onClickClose = () => {
     modalState.close();
-    scroll.set(true);
+    scrollableStore.set(true);
 };
 const { hasFocus, activate, deactivate } = useFocusTrap(modal, {
     allowOutsideClick: true,
@@ -36,7 +47,9 @@ onMounted(async () => {
         }
     });
     await nextTick();
-    close.value.focus();
+    if (modalState.isOpen) {
+        close.value.focus();
+    }
 });
 close.value?.addEventListener("keydown", e => {
     console.log(e.shiftKey);
@@ -68,14 +81,6 @@ watch(
     }
 );
 </script>
-<template>
-    <div ref="modal" class="change_modal" role="dialog" :aria-modal="modalState.isOpen">
-        <div ref="close" class="close" @click="onClickClose" aria-label="閉じる" tabindex="0">
-            <span class="material-symbols-outlined"> close </span>
-        </div>
-        <component :is="component"></component>
-    </div>
-</template>
 <style scoped>
 .change_modal {
     position: relative;

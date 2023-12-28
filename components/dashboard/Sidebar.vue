@@ -4,10 +4,10 @@
     </nav>
 </template>
 <script setup>
-const open = useOpenStore();
+const openStore = useOpenStore();
 const styles = computed(() => {
     return {
-        width: open.isOpen
+        width: openStore.isOpen
             ? "var(--dashboard-sidebar-opened-width)"
             : "var(--dashboard-sidebar-closed-width)",
     };
