@@ -133,7 +133,8 @@ watch(
 .close:hover {
     filter: brightness(0.9);
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .change_modal {
         min-width: auto;
         min-height: auto;

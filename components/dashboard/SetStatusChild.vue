@@ -99,7 +99,8 @@ const onClose = () => {
     justify-content: flex-start;
     gap: 10px;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .change-status-child {
         grid-template-columns: 1fr;
         grid-template-rows: auto;

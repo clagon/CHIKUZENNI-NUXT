@@ -89,7 +89,8 @@ const onClickOpen = () => {
 .status_open > span:active {
     background-color: #0004;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .status_button {
         display: none;
     }

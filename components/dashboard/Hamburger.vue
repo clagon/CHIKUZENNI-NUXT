@@ -50,7 +50,8 @@ const onClick = () => {
     height: 1px;
     background-color: #000;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .hamburger-wrapper {
         display: none;
     }

@@ -73,7 +73,8 @@ ul {
 .save_button:active {
     background-color: #9ca3af;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     ul {
         padding-top: 20px;
     }

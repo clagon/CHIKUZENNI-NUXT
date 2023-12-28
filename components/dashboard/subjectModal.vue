@@ -118,7 +118,8 @@ const currentComponent = computed(() => {
     display: grid;
     grid-template-rows: 80px 80px 1fr;
 }
-/* @media (max-width: 768px) {
+/* /* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .subject-modal-container {
         width: 100%;
     }

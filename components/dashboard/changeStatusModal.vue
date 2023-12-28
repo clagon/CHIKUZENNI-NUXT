@@ -96,7 +96,8 @@ const onstatusChange = async status => {
     border-radius: 8px;
     cursor: pointer;
 } */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .status_contaier {
         padding-left: 0px;
     }

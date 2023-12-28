@@ -19,7 +19,8 @@ const styles = computed(() => {
     top: var(--dashboard-header-height);
     height: calc(100% - var(--dashboard-header-height));
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .sidebar {
         bottom: 0;
         top: unset;

@@ -42,7 +42,8 @@ const props = defineProps({
     justify-content: flex-end;
     align-items: center;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .header {
         background-color: #fff;
     }

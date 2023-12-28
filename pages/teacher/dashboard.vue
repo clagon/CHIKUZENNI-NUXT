@@ -58,7 +58,8 @@ const styles = computed(() => {
     padding-top: 40px;
     padding-right: 40px;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .content {
         padding-left: 0 !important;
         display: flex;

@@ -129,7 +129,8 @@ watch(
     color: var(--smoke-white);
 }
 /* responsive */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
+@media (max-width: 1024px) {
     .sidebar-content {
         flex-shrink: 1;
         flex-grow: 1;
